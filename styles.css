@@ -1,0 +1,157 @@
+/* RESET SUAVE */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  padding-top: 72px; /* navbar fixed */
+  color: #111;
+}
+
+/* HERO */
+.hero {
+  min-height: 90vh;
+  background-color: #111;
+  background-image: none; /* luego aquí va tu imagen */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #fff;
+}
+
+.hero-subtitle {
+  color: #ddd;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+}
+
+/* SECCIONES */
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-text {
+  color: #666;
+}
+
+/* REWARDS */
+.section-rewards {
+  background-color: #f5f5f5;
+}
+
+.rewards-image {
+  width: 100%;
+  height: 300px;
+  background-color: #ccc;
+  border-radius: 1rem;
+}
+
+/* CTA */
+.section-cta {
+  background-color: #111;
+  color: #fff;
+}
+
+.cta-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-text {
+  margin-bottom: 2rem;
+  color: #ddd;
+}
+
+/* TOP BAR */
+.top-bar {
+  background: #000;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.top-bar-content {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.4rem 0;
+}
+
+/* HEADER */
+.main-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1000;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* LOGO */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #111;
+}
+
+/* NAV */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  position: relative;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: #111;
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+
+/* FOOTER */
+.site-footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 0;
+}
