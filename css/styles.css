@@ -10,7 +10,7 @@ body {
 .hero {
   min-height: 90vh;
   background-color: #0e4383;
-  background-image: none; /* luego aquí va tu imagen */
+  background-image: none; /* aquí va la imagen */
   background-size: cover;
   background-position: center;
 }
@@ -100,19 +100,22 @@ body {
   top: 0;
   background: #fff;
   z-index: 1000;
+
   border-bottom: 1px solid #e5e5e5;
 }
 
 /* LOGO */
 .logo img {
-  height: 90px; /* ajuste del tamaño del logo */
+  height: 100px; /* ajuste del tamaño del logo */
   width: auto;
   margin: 1rem 0 0.5rem;
+  box-shadow: #666; 
 }
 
 .logo a {
   text-decoration: none;
   color: #111;
+  
 }
 
 /* NAV */
