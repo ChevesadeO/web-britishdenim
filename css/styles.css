@@ -172,7 +172,7 @@ body {
 
 /* MOBILE */
 @media (max-width: 991px){
-  
+
 
   /*OCULTAR TOP BAR EN MOBILE*/ 
  .top-bar {     
@@ -210,7 +210,7 @@ body {
 
 /*CLASE ACTIVA PARA MOSTRAR EL MENÚ EN MOBILE*/
   .main-nav.active {
-    max-width: 500px;
+    max-height: 500px;
     opacity: 1;
     transform: translateY(0);
   }
