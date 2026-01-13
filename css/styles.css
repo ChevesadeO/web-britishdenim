@@ -2,7 +2,7 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   margin: 0;
-  padding-top: 0%; /* navbar fixed */
+  padding-top: 0; /* navbar fixed */
   color: #0e4383;
 }
 
@@ -10,7 +10,7 @@ body {
 .hero {
   min-height: 90vh;
   background-color: #0e4383;
-  background-image: none; /* aquí va la imagen */
+  background-image: none;           /* aquí va la imagen */
   background-size: cover;
   background-position: center;
 }
@@ -19,7 +19,7 @@ body {
   min-height: 90vh;
   display: flex;
   align-items: center;
-  background: rgba(#0e4383);
+  background: rgba(14, 67, 131, 0.7);
 }
 
 .hero-title {
@@ -109,7 +109,7 @@ body {
   height: 100px; /* ajuste del tamaño del logo */
   width: auto;
   margin: 1rem 0 0.5rem;
-  box-shadow: #666; 
+  box-shadow: rgb(0,0,0,0.15); 
 }
 
 .logo a {
@@ -158,3 +158,64 @@ body {
   text-align: center;
   padding: 1.2rem 0;
 }
+
+/* RESPONSIVE HEADER */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #0e4383;
+  margin-bottom: 1rem;
+}
+
+/* MOBILE */
+@media (max-width: 991px){
+  
+
+  /*OCULTAR TOP BAR EN MOBILE*/ 
+ .top-bar {     
+    display: none; 
+  }
+   
+  /*LOGO MÁS PEQUEÑO EN MOBILE*/
+  .logo img {
+    height: 70px; 
+  } 
+
+  /*MOSTRAR BOTON DE MENÚ EN MOBILE*/
+  .menu-toggle {
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+  /*NAVEGACIÓN EN MOBILE*/
+  .main-nav {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: 
+      max-height 0.4s ease,
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom:  1.5rem;
+  }
+
+/*CLASE ACTIVA PARA MOSTRAR EL MENÚ EN MOBILE*/
+  .main-nav.active {
+    max-width: 500px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* FIN CSS */
