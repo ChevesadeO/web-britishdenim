@@ -100,7 +100,6 @@ body {
   top: 0;
   background: #fff;
   z-index: 1000;
-
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -109,16 +108,11 @@ body {
   height: 100px; /* ajuste del tamaño del logo */
   width: auto;
   margin: 1rem 0 0.5rem;
-  box-shadow: rgb(0,0,0,0.15); 
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15); 
 }
 
-.logo a {
-  text-decoration: none;
-  color: #111;
-  
-}
 
-/* NAV */
+/* NAV DESKTOP */
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -173,8 +167,6 @@ body {
 /* MOBILE */
 @media (max-width: 991px){
 
-
-  /*OCULTAR TOP BAR EN MOBILE*/ 
  .top-bar {     
     display: none; 
   }
@@ -215,6 +207,95 @@ body {
     transform: translateY(0);
   }
 
+}
+
+/* BOTÓN HAMBURGUESA */
+.menu-toggle {
+  position: relative;   
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; /* oculto en el desktop */
+}
+
+/* LINEAS */
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: #0e4383;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.menu-toggle span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-toggle span::before {
+  top: -8px;
+}
+
+.menu-toggle span::after {
+  top: 8px;
+}
+
+/* ESTADO ABIERTO → X */
+.menu-toggle.is-open span {
+  background: transparent;
+}
+
+.menu-toggle.is-open span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.is-open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* MOBILE */
+@media (max-width: 991px){
+
+  .top-bar { display: none; }
+
+  .logo img { height: 70px; }
+
+  .menu-toggle {
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+  .main-nav {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition:
+      max-height 0.4s ease,
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .main-nav.active {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
