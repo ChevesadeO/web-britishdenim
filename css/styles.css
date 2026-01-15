@@ -88,18 +88,20 @@ body {
 
 /* CTA */
 .section-cta {
-  background-color: #111;
+  background-color: linear-gradient(135deg, #0e4383, #0b2f5f);
   color: #fff;
 }
 
-.cta-title {
-  font-weight: 700;
-  margin-bottom: 1rem;
+.section-cta .cta-title {
+  font-size: 2.4rem;
 }
 
-.cta-text {
-  margin-bottom: 2rem;
-  color: #ddd;
+.section-cta .btn{
+  margin-top: 1rem;
+}
+
+.section {
+padding: 6rem 0;
 }
 
 /* TOP BAR */
@@ -363,6 +365,77 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+@media (max-width: 991px) {
+  .section {
+    padding: 4rem 0;
+
+  }
+  
+}
+
+@media (max-width: 575px) {
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 991px) {
+  .section-brand .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 991px) {
+
+  .rewards-image {
+    height: 260px;
+  }
+
+  .section-rewards .section-title {
+    text-align: center;
+  }
+
+  .section-rewards .section-text {
+    text-align: center;
+  }
+
+  .section-rewards .btn {
+    display: block;
+    margin: 1.5rem auto 0;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .section-cta .cta-title {
+    font-size: 2rem;
+  }
+
+  .section-cta .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 
