@@ -338,5 +338,32 @@ body {
 
 }
 
+@media (max-width: 991px) {
+
+  .hero-split,
+  .hero-overlay {
+    min-height: 85vh;
+  }
+
+  .hero-content {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .hero-image-wrapper {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 
 /* FIN CSS */
