@@ -15,7 +15,7 @@
   background-size: cover;
   background-position: center;
   z-index: -2;
-  filter: grayscale(100%) contrast(1.05);
+  filter: grayscale(20%) contrast(1.0);
 }
 
 /* Overlay suave */
@@ -58,6 +58,13 @@
   color: #333;
 }
 
+.contact-info {
+    background: #f5f6f8;
+    padding: 2rem;
+    border-radius: 0.9rem;
+    height: 100%;
+}
+
 /* Form */
 .contact-form-modern .form-control {
   border-radius: 0.6rem;
@@ -66,8 +73,11 @@
 }
 
 .contact-form-modern .btn {
-  padding: 0.9rem;
+  padding: 0.9rem 1.2rem;
   font-size: 1rem;
+  color: #ffffff;
+  border-radius: 2rem; /* BOTON OCALADO COMPLETO */
+  font-weight: 600; 
 }
 
 /* Responsive */
