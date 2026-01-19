@@ -65,6 +65,12 @@
     height: 100%;
 }
 
+@media (max-width: 991px) {
+    .contact-info{
+        margin-bottom: 1.5rem;
+    }
+}
+
 /* Form */
 .contact-form-modern .form-control {
   border-radius: 0.6rem;
