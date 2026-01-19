@@ -1,13 +1,9 @@
-/* ============================= */
-/* CONTACTO – MODERNO (FINAL) */
-/* ============================= */
-
 .contact-modern {
   position: relative;
   padding: 6rem 0;
 }
 
-/* Fondo con imagen */
+/* FONDO DE IMAGEN */
 .contact-bg {
   position: absolute;
   inset: 0;
@@ -15,18 +11,17 @@
   background-size: cover;
   background-position: center;
   z-index: -2;
-  filter: grayscale(20%) contrast(1.0);
 }
 
-/* Overlay suave */
+/* OVERLAY SUAVE*/
 .contact-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.18);
 }
 
-/* Card */
+/* CARD */
 .contact-card {
   position: relative;
   z-index: 1;
@@ -38,7 +33,7 @@
   margin: 0 auto;
 }
 
-/* Info */
+/* INFORMACION DE LA EMPRESA */
 .contact-info h4 {
   font-size: 1.6rem;
   font-weight: 700;
@@ -71,22 +66,85 @@
     }
 }
 
-/* Form */
+/* FORMULARIO */
 .contact-form-modern .form-control {
   border-radius: 0.6rem;
   padding: 0.75rem;
   font-size: 0.95rem;
 }
 
+/* BOTÓN ULTRA-PREMIUM */
 .contact-form-modern .btn {
-  padding: 0.9rem 1.2rem;
-  font-size: 1rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px; /* píldora perfecta */
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
   color: #ffffff;
-  border-radius: 2rem; /* BOTON OCALADO COMPLETO */
-  font-weight: 600; 
+  background: linear-gradient(
+    135deg,
+    #0e4383 0%,
+    #0b2f5f 100%
+  );
+
+  border: none;
+  box-shadow:
+    0 10px 25px rgba(14,67,131,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
-/* Responsive */
+
+/* CHECKBOX */ 
+.contact-form-modern .form-check-label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.contact-form-modern .form-check-label a {
+    color: #0e4383;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.contact-form-modern .form-check-input {
+    cursor: pointer;
+}
+
+.contact-form-modern .btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 40px rgba(14,67,131,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.contact-form-modern .btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 40px rgba(14,67,131,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.contact-form-modern .btn:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 4px rgba(14,67,131,0.25),
+    0 12px 30px rgba(14,67,131,0.4);
+}
+
+
+/* RESPONSIVE */
 @media (max-width: 991px) {
   .contact-modern {
     padding: 4rem 1rem;
@@ -96,3 +154,12 @@
     padding: 2rem;
   }
 }
+
+@media (max-width: 575px) {
+  .contact-form-modern .btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+}
+
+
