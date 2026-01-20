@@ -70,6 +70,28 @@
   font-size: 0.85rem;
 }
 
+.site-footer {
+  border-top: 1px solid rgba(255,255,255,0.25); /*linea superior mas fina */ 
+}
+/* REDES SOCIALES */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-social a {
+  color: rgba(255,255,255,0.85);
+  font-size:  0.85rem;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-social a:hover{
+  color: #ffffff
+}
+
 /* RESPONSIVE HEADER & NAV */
 
 .menu-toggle {
@@ -80,6 +102,16 @@
   height: 44px;
   cursor: pointer;
   position: relative;
+}
+
+@media (max-width: 575px) {
+  .footer-social {
+    gap: 1rem;
+  }
+
+  .site-footer {
+    font-size: 0.8rem;
+  }
 }
 
 /* LÍNEAS HAMBURQUESAS */
@@ -163,3 +195,5 @@
     transform: translateY(0);
   }
 }
+
+
