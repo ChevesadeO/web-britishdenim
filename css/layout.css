@@ -375,4 +375,118 @@ body:not(.dark-mode) .theme-toggle .sun {
   opacity: 1;
 }
 
+/* TRANSICION GLOBAL LIGHT ↔ DARK */
+body, 
+.main-header,
+.footer-premium,
+.footer-bottom,
+.contact-card,
+.contact-info,
+input, 
+textarea,
+button {
+  transition: 
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
 
+/* MEJORA VISUAL DEL TOGGLE (MICRO-ANIMACION) */
+.theme-toggle {
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-toggle:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+body.dark .theme-toggle {
+  background: #1a1c1f;
+}
+
+body.dark .contact-card {
+  background: #141619;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+}
+
+body.dark .contact-info {
+  background: #1b1e22;
+  color: #e6e6e6;
+}
+
+body.dark .contact-info p,
+body.dark .contact-item {
+  color: #cfcfcf;
+}
+
+body.dark .contact-form-modern .form-control {
+  background: #1a1c1f;
+  border: 1px solid #2a2d31;
+  color: #eaeaea;
+}
+
+body.dark .contact-form-modern .form-control::placeholder {
+  color: #9aa0a6;
+}
+
+body.dark .contact-form-modern .form-control:focus {
+  border-color: #0e4383;
+  box-shadow: 0 0 0 0.15rem rgba(14,67,131,0.35);
+}
+
+.contact-form-modern .btn {
+  background: linear-gradient(135deg, #0e4383, #0b2f5f);
+  border: none;
+}
+
+body.dark .contact-form-modern .btn {
+  background: linear-gradient(135deg, #1f6feb, #0e4383);
+}
+
+.contact-form-modern .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.contact-form-modern .btn {
+  background: linear-gradient(135deg, #0e4383, #0b2f5f);
+  border: none;
+}
+
+body.dark .contact-form-modern .btn {
+  background: linear-gradient(135deg, #1f6feb, #0e4383);
+}
+
+.contact-form-modern .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.contact-form-modern .btn {
+  background: linear-gradient(135deg, #0e4383, #0b2f5f);
+  border: none;
+}
+
+body.dark .contact-form-modern .btn {
+  background: linear-gradient(135deg, #1f6feb, #0e4383);
+}
+
+.contact-form-modern .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.contact-form-modern .btn {
+  background: linear-gradient(135deg, #0e4383, #0b2f5f);
+  border: none;
+}
+
+body.dark .contact-form-modern .btn { /* para que no se vea lavado */
+  background: linear-gradient(135deg, #1f6feb, #0e4383);
+}
+
+.contact-form-modern .btn:hover { /* en light*/ 
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
