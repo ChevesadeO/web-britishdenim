@@ -12,3 +12,16 @@ document.addEventListener('DOMContentLoaded', function () {
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const contactCard = document.querySelector(".contact-card");
+
+  if (contactCard) {
+    //pequeno delay
+    setTimeout(() => {
+      contactCard.classList.add("is-visible");
+    }, 150);
+  }
+});
+
+

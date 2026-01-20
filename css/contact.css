@@ -162,4 +162,20 @@
   }
 }
 
+/* FADE-IN CONTACT CARD */
+.contact-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+/* Estado visible */
+.contact-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
