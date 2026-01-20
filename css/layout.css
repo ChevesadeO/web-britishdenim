@@ -490,3 +490,105 @@ body.dark .contact-form-modern .btn { /* para que no se vea lavado */
   transform: translateY(-1px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
+
+/* CARDS EN DARK MODE */
+body.dark .contact-card,
+body.dark .card,
+body.dark .box {
+  background: #141619;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+  color: #eaeaea;
+}
+
+/* PANEL INFORMATIVO - PARTE GRIS DEL CONTACTO */
+body.dark .contact-info {
+  background: #1b1e22;
+  color: #e6e6e6;
+}
+
+body.dark .contact-info p,
+body.dark .contact-item {
+  color: #cfcfcf;
+}
+
+/* INPUTS Y TEXTAREA */
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background: #1a1c1f;
+  border: 1px solid #2a2d31;
+  color: #eaeaea;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: #9aa0a6;
+}
+
+body.dark input:focus,
+body.dark textarea:focus {
+  border-color: #0e4383;
+  box-shadow: 0 0 0 0.15rem rgba(14,67,131,0.35);
+}
+
+/* BOTONES (LIGTH Y DARK) */
+button,
+.btn {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark .btn {
+  background: linear-gradient(135deg, #1f6feb, #0e4383);
+  color: #ffffff;
+  border: none;
+}
+
+body.dark .btn:hover {
+  box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+  transform: translateY(-1px);
+}
+
+/* CHECKBOX / TERMINOS */ 
+body.dark .form-check-label {
+  color: #cfcfcf;
+}
+
+body.dark .form-check-input {
+  background-color: #1a1c1f;
+  border-color: #3a3d42;
+}
+
+/* HEADER DARK */ 
+body.dark .main-header {
+  background: #0f1113;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* LINKS DEL MENU */ 
+body.dark .main-nav a {
+  color: #e5e7eb;
+}
+
+body.dark .main-nav a::after {
+  background: #4ea1ff;
+}
+
+/* MENU DESPLEGADO */ 
+body.dark .main-nav {
+  background: #0f1113;
+}
+
+/* BOTON HAMBURQUESA EN DARK */ 
+body.dark .menu-toggle span,
+body.dark .menu-toggle span::before,
+body.dark .menu-toggle span::after {
+  background: #e5e7eb;
+}
+
+/* TOGGLE DARK */ 
+body.dark .theme-toggle {
+  background: #1a1c1f;
+}
+
+
+
