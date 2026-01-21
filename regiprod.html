@@ -64,82 +64,66 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero hero-split">
-  <div class="hero-overlay">
-    <div class="container">
-      <div class="row align-items-center">
+<!-- HERO REWARDS -->
+<section class="regprod-section">
+  <div class="container">
 
-        <!-- TEXTO -->
-        <div class="col-lg-6 hero-content">
-          <h1 class="hero-title">British Denim</h1>
-          <p class="hero-subtitle">
-            Denim que construye marca y experiencia para Latinoamérica.
-          </p>
+    <div class="regprod-card">
 
-          <div class="hero-actions">
-            <a href="contactenos.html" class="btn btn-light btn-lg">
-              Contáctenos
-            </a>
-          </div>
-        </div>
+      <!-- ESTADO DINÁMICO -->
+      <h1 class="regprod-title">
+        Registra tu producto
+      </h1>
 
-        <!-- IMAGEN -->
-        <div class="col-lg-6 hero-image-wrapper">
-          <img 
-            src="img/hero-model.jpg" 
-            alt="British Denim" 
-            class="hero-image"
+      <p class="regprod-subtitle">
+        Podrás aprovechar futuras promociones.
+      </p>
+
+      <!-- FORM -->
+      <form class="regprod-form">
+
+        <label class="form-label">Referencia</label>
+        <input 
+          type="text" 
+          class="form-control"
+          placeholder="Busca la referencia. Ej. RE-2345"
+          required
+        >
+
+        <!-- SOLO SI USUARIO REGISTRADO -->
+        <div class="registered-only">
+          <label class="form-label">Tu correo</label>
+          <input 
+            type="email" 
+            class="form-control"
+            value="chevesade18@gmail.com"
+            readonly
           >
         </div>
 
-      </div>
+        <!-- BOTONES -->
+        <div class="regprod-actions">
+
+          <!-- ESTADO NO REGISTRADO -->
+          <button class="btn btn-outline-secondary">
+            Regístrate primero
+          </button>
+
+          <button class="btn btn-primary">
+            Ya tengo usuario
+          </button>
+
+          <!-- ESTADO REGISTRADO -->
+          <button class="btn btn-primary w-100 registered-only">
+            Registrar producto
+          </button>
+
+        </div>
+
+      </form>
+
     </div>
-  </div>
-</section>
 
-<!-- MENSAJE DE MARCA -->
-<section class="section section-brand">
-  <div class="container text-center">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <h2 class="section-title">Experiencia que conecta marcas</h2>
-        <p class="section-text">
-          Creamos soluciones en denim que integran diseño, distribución
-          y programas de fidelización para nuestros aliados.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REWARDS -->
-<section class="section section-rewards">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <div class="rewards-image"></div>
-      </div>
-
-      <div class="col-lg-6">
-        <h3 class="section-title">Rewards</h3>
-        <p class="section-text">
-          Un programa diseñado para generar valor real y relaciones duraderas.
-        </p>
-        <a href="#" class="btn btn-dark mt-3">Conocer Rewards</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
-<section class="section section-cta">
-  <div class="container text-center">
-    <h2 class="cta-title">¿Hablamos?</h2>
-    <p class="cta-text">
-      Conversemos sobre cómo trabajar juntos.
-    </p>
-    <a href="#" class="btn btn-light btn-lg">Contáctenos</a>
   </div>
 </section>
 

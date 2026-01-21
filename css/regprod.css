@@ -1,0 +1,56 @@
+.regprod-section {
+  padding: 6rem 0;
+}
+
+.regprod-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3.5rem;
+  border-radius: 1.4rem;
+
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+}
+
+.regprod-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.regprod-subtitle {
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+.regprod-form .form-control {
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.6rem;
+}
+
+.regprod-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* BOTONES */
+.regprod-actions .btn {
+  border-radius: 999px;
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+}
+
+/* DARK MODE */
+body.dark .regprod-card {
+  background: rgba(20,22,25,0.65);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+
+body.dark .regprod-subtitle {
+  color: #cfcfcf;
+}

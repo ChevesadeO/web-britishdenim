@@ -129,6 +129,15 @@ body.dark .contact-form-modern .btn {
   filter: grayscale(20%) contrast(1.05);
 }
 
+/* MAPA PARALLAX */
+
+.map-wrapper {
+  transform: translateY(0);
+  transition: transform 0.2s linear;
+  will-change: transform;
+}
+
+
 /* DARK MODE */
 body.dark .map-wrapper iframe {
   filter: grayscale(100%) contrast(1.2) brightness(0.85);
@@ -143,11 +152,11 @@ body.dark .map-wrapper iframe {
 }
 
 
-
-
-
-
-
+@media (max-width: 575px) {
+  .map-wrapper {
+    transform: none !important;
+  }
+}
 
 
 /* RESPONSIVE */
