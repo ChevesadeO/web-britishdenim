@@ -1,67 +1,75 @@
-.regprod-section {
-  padding: 6rem 0 8rem; 
+/* HERO */
+.regprod-hero {
+  background: linear-gradient(
+      rgba(14,67,131,0.55),
+      rgba(14,67,131,0.55)
+    ),
+    url("../img/denim.jpg") center/cover no-repeat;
+  padding: 5rem 0;
+  color: #fff;
 }
 
+.regprod-hero-badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+.regprod-hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+/* SECTION */
+.regprod-section {
+  padding: 5rem 0 9rem;
+}
+
+/* CARD */
 .regprod-card {
   max-width: 720px;
-  margin: 0 auto;
+  margin: -3.5rem auto 0;
   padding: 3.5rem;
   border-radius: 1.4rem;
-
   background: rgba(255,255,255,0.75);
   backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
   box-shadow: 0 40px 80px rgba(0,0,0,0.15);
 }
 
+/* TITLES */
 .regprod-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 0.8rem;
 }
 
 .regprod-subtitle {
   color: #555;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
+/* FORM */
 .regprod-form .form-control {
-  margin-bottom: rem;
+  margin-bottom: 2rem;
   padding: 0.85rem 1rem;
   border-radius: 0.6rem;
 }
 
-.regprod-form {
-  margin-top: 1.5rem;
-}
-
+/* ACTIONS */
 .regprod-actions {
-  margin-top: 2rem;
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
 }
 
-.regprod-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-/* BOTONES */
 .regprod-actions .btn {
   border-radius: 999px;
-  padding: 0.8rem 1.6rem;
+  padding: 0.75rem 1.6rem;
   font-weight: 600;
 }
 
 .registered-only {
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.8rem;
-  font-size: 0.95rem;
-  border-radius: 999px;
-  align-self: flex-start;
+  margin-top: 1rem;
 }
 
 /* DARK MODE */
@@ -73,3 +81,4 @@ body.dark .regprod-card {
 body.dark .regprod-subtitle {
   color: #cfcfcf;
 }
+

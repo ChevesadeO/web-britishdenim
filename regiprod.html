@@ -2,19 +2,16 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>British Denim</title>
+  <title>Registra tu producto | British Denim</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
 
-  <!-- CSS  -->
+  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
-
 </head>
-<!-- LLAMA JS -->
-<script src="js/menu.js"></script>
 
 <body>
 
@@ -32,86 +29,74 @@
 <!-- HEADER -->
 <header class="main-header">
   <div class="container text-center">
-    <!-- LOGO -->
     <div class="logo">
-        <a href="inicio.html">
+      <a href="inicio.html">
         <img src="img/logo3.png" alt="British Denim Logo">
       </a>
     </div>
 
-<!-- CONFIGURACION DE MENU -->
-
-<!-- MENU TOGGLE (MOBILE) -->
-    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <button class="menu-toggle" aria-label="Abrir menú">
       <span></span>
     </button>
 
-    <!-- NAV -->
-    <nav class="main-nav"> 
+    <nav class="main-nav">
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="regiprod.html">Registra tu producto</a></li>
+        <li><a href="regiprod.html" class="active">Registra tu producto</a></li>
         <li><a href="contactenos.html">Contáctenos</a></li>
         <li><a href="perfil.html">Perfil</a></li>
       </ul>
     </nav>
-<!-- DARK MODE TOGGLE -->
-      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
-        <span class="icon sun">☀️</span>
-        <span class="icon moon">🌙</span>
-      </button>
 
+    <button class="theme-toggle" id="themeToggle">
+      <span class="icon sun">☀️</span>
+      <span class="icon moon">🌙</span>
+    </button>
   </div>
 </header>
 
-<!-- HERO REWARDS -->
+<main>
+
+<!-- HERO BANNER -->
+<section class="regprod-hero">
+  <div class="container">
+    <span class="regprod-hero-badge">REWARDS</span>
+    <h1>Registro de Producto</h1>
+    <p>Registra tu referencia y accede a beneficios exclusivos.</p>
+  </div>
+</section>
+
+<!-- FORM SECTION -->
 <section class="regprod-section">
   <div class="container">
 
     <div class="regprod-card">
 
-      <div class="regprod-badge">
-       Programa Rewards · Registro de Producto
-      </div>
-
-        <span class="badge-text
-      <!-- ESTADO DINÁMICO -->
-      <h1 class="regprod-title">
-        Registra tu producto
-      </h1>
-
+      <h2 class="regprod-title">¡Registra tu producto ahora!</h2>
       <p class="regprod-subtitle">
         Podrás aprovechar futuras promociones.
       </p>
 
-      <!-- FORM -->
       <form class="regprod-form">
 
         <label class="form-label">Referencia</label>
-        <input 
-          type="text" 
+        <input
+          type="text"
           class="form-control"
-          placeholder="Busca la referencia. Ej. RE-2345"
-          required
-        > 
+          placeholder="Busca la referencia. Ej. RE-12345" required>
 
-        <!-- BOTONES -->
         <div class="regprod-actions">
-
-          <!-- ESTADO NO REGISTRADO -->
-          <button class="btn btn-outline-secondary">
+          <button type="button" class="btn btn-outline-secondary">
             Regístrate primero
           </button>
 
-          <button class="btn btn-primary">
+          <button type="button" class="btn btn-primary">
             Ya tengo usuario
           </button>
 
-          <!-- ESTADO REGISTRADO -->
-          <button class="btn btn-primary  registered-only">
+          <button type="submit" class="btn btn-primary registered-only">
             Registrar producto
           </button>
-
         </div>
 
       </form>
@@ -121,13 +106,13 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer class="footer-premium">
   <div class="footer-container">
-
     <div class="footer-grid">
 
-      <!-- BRAND -->
       <div class="footer-col">
         <h6 class="footer-title">BRITISH DENIM</h6>
         <p>
@@ -135,29 +120,22 @@
           Diseñado para destacar en cada detalle.
         </p>
 
-        <!-- REDES SOCIALES -->
         <div class="footer-social">
-          <a href="https://www.facebook.com/profile.php?id=100067495458384" aria-label="Facebook">
-            <i class="bi bi-facebook"></i>
-          </a>
-          <a href="https://www.instagram.com/britishdenimlatam?igsh=MWYydDd4aTVnMXc4eg==" aria-label="Instagram">
-            <i class="bi bi-instagram"></i>
-          </a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
         </div>
       </div>
 
-      <!-- MENU -->
       <div class="footer-col">
         <h6 class="footer-title">MENÚ</h6>
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="rewards.html">Rewards</a></li>
+          <li><a href="regiprod.html">Registro</a></li>
           <li><a href="contactenos.html">Contacto</a></li>
           <li><a href="perfil.html">Perfil</a></li>
         </ul>
       </div>
 
-      <!-- AYUDA -->
       <div class="footer-col">
         <h6 class="footer-title">AYUDA</h6>
         <ul>
@@ -166,11 +144,9 @@
         </ul>
       </div>
 
-      <!-- CONTACTO -->
       <div class="footer-col">
         <h6 class="footer-title">¿ALGUNA PREGUNTA?</h6>
         <p>
-          Calle 15 1/2, Ave. St. Isabel<br>
           Zona Libre de Colón, Panamá<br>
           +507 433-9200<br>
           info@epcotsa.com
@@ -180,17 +156,14 @@
     </div>
   </div>
 
-  <!-- BARRA COPYRIGHT FULL WIDTH -->
   <div class="footer-bar">
     © 2026 British Denim. Todos los derechos reservados.
   </div>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="js/menu.js"></script>
 <script src="js/theme.js"></script>
-
 
 </body>
 </html>
