@@ -3,19 +3,5 @@
 @import url("layout.css");
 @import url("hero.css");
 @import url("contact.css");
-@import url("rewards.css");
+@import url("regprod.css");
 
-/* ===== LAYOUT BASE ===== */
-html, body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 30px; /* 👈 ESTO empuja el footer */
-}

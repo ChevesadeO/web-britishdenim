@@ -16,43 +16,58 @@ body {
 }
 
 /* ===== DARK MODE ===== */
-body.dark-mode {
+body.dark {
   background: #0f1115;
   color: #e5e7eb;
 }
 
 /* Header */
-body.dark-mode .main-header {
+body.dark .main-header {
   background: #0f1115;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 /* Nav */
-body.dark-mode .main-nav a {
+body.dark .main-nav a {
   color: #e5e7eb;
 }
 
-body.dark-mode .main-nav a::after {
+body.dark .main-nav a::after {
   background: #4ea1ff;
 }
 
 /* Cards */
-body.dark-mode .contact-card {
+body.dark .contact-card {
   background: #151821;
   box-shadow: 0 40px 80px rgba(0,0,0,0.6);
 }
 
 /* Footer */
-body.dark-mode .footer-premium {
+body.dark .footer-premium {
   background: #0f1115;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-body.dark-mode .footer-col p,
-body.dark-mode .footer-col a {
+body.dark .footer-col p,
+body.dark .footer-col a {
   color: #cfd3da;
 }
 
-body.dark-mode .footer-bottom {
+body.dark .footer-bottom {
   background: #0b2f5f;
+}
+
+/* ===== LAYOUT BASE ===== */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 30px; /* 👈 ESTO empuja el footer */
 }
