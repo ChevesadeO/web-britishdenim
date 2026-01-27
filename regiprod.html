@@ -8,23 +8,40 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
+  
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/topbar.css">
+
 </head>
 
 <body>
 
 <!-- TOP BAR -->
 <div class="top-bar">
-  <div class="container">
-    <div class="top-bar-content">
-      <span>+507 433-9200</span>
-      <span>info@epcotsa.com</span>
-      <span>Denim & Brand Experience</span>
-    </div>
+  <div class="top-bar-track">
+
+    <ul class="top-bar-loop" id="topBarLoop">
+      <li class="top-item">
+        <i class="bi bi-telephone"></i>
+        +507 433-9200
+      </li>
+
+      <li class="top-item">
+        <i class="bi bi-envelope"></i>
+        info@epcotsa.com
+      </li>
+
+      <li class="top-item">
+        <i class="bi bi-stars"></i>
+        Denim & Brand Experience
+      </li>
+    </ul>
+
   </div>
 </div>
+
 
 <!-- HEADER -->
 <header class="main-header">
@@ -61,7 +78,6 @@
 <!-- HERO BANNER -->
 <section class="regprod-hero">
   <div class="container">
-    <span class="regprod-hero-badge">REWARDS</span>
     <h1>Registro de Producto</h1>
     <p>Registra tu referencia y accede a beneficios exclusivos.</p>
   </div>
@@ -73,29 +89,22 @@
 
     <div class="regprod-card">
 
-      <h2 class="regprod-title">¡Registra tu producto ahora!</h2>
-      <p class="regprod-subtitle">
-        Podrás aprovechar futuras promociones.
-      </p>
-
       <form class="regprod-form">
 
         <label class="form-label">Referencia</label>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Busca la referencia. Ej. RE-12345" required>
+        <input type="text"class="form-control" placeholder="Busca la referencia. Ej. RE-12345" required> 
+
 
         <div class="regprod-actions">
-          <button type="button" class="btn btn-outline-secondary">
+          <button class="btn shadow-effect">
             Regístrate primero
           </button>
 
-          <button type="button" class="btn btn-primary">
+          <button class="btn shadow-effect">
             Ya tengo usuario
           </button>
 
-          <button type="submit" class="btn btn-primary registered-only">
+          <button class="btn shadow-effect">
             Registrar producto
           </button>
         </div>
@@ -162,9 +171,11 @@
   </div>
 </footer>
 
+<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/theme.js"></script>
+<script src="js/topbar-loop.js" defer></script>
 
 </body>
 </html>

@@ -1,0 +1,73 @@
+/* TOP BAR */
+.top-bar {
+  background: #0e4383;
+  color: #ffffff;
+  font-size: 0.85rem;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+/* CONTENEDOR DEL LOOP */
+.top-bar-track {
+  width: 100%;
+  /*overflow: hidden;*/
+}
+
+/* LISTA */
+.top-bar-loop {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  list-style: none;
+  padding: 0.6rem 0;
+  margin: 0;
+  width: max-content;
+  animation: topBarScroll 15s linear infinite;
+}
+
+/* ITEM */
+.top-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+  font-weight: 500;
+  opacity: 0.9;
+
+  /* efecto visual */
+  mix-blend-mode: screen;
+}
+
+/* ICONOS */
+.top-item i {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ANIMACIÓN */
+@keyframes topBarScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* PAUSA AL HOVER */
+.top-bar:hover .top-bar-loop {
+  animation-play-state: paused;
+}
+
+/* DARK MODE */
+body.dark .top-bar {
+  background: #0b2f5f;
+}
+
+/* MOBILE */
+@media (max-width: 575px) {
+  .top-bar-loop {
+    gap: 2rem;
+    font-size: 0.8rem;
+  }
+}

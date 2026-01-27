@@ -111,7 +111,7 @@ body.dark .contact-form-modern .btn {
 /* CONTENEDOR CENTRADO */
 .map-wrapper {
   max-width: 1000px;      /* controla el ancho */
-  margin: 0 auto;         /* 🔑 centra horizontalmente */
+  margin: 0 auto;         /* centra horizontalmente */
   width: 100%;
   height: 420px;
 
@@ -130,7 +130,6 @@ body.dark .contact-form-modern .btn {
 }
 
 /* MAPA PARALLAX */
-
 .map-wrapper {
   transform: translateY(0);
   transition: transform 0.2s linear;
@@ -151,13 +150,11 @@ body.dark .map-wrapper iframe {
   }
 }
 
-
 @media (max-width: 575px) {
   .map-wrapper {
     transform: none !important;
   }
 }
-
 
 /* RESPONSIVE */
 @media (max-width: 991px) {
