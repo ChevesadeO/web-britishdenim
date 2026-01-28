@@ -1,43 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loop = document.getElementById("topBarLoop");
-  const SPEED = 100; // px por segundo
-  const COPIES = 4; // número de copias del contenido para loop limpio
 
-  // 1️⃣ Duplicar contenido para loop limpio
-  const original = loop.innerHTML;
-  loop.innerHTML = "";
-  for (let i = 0; i < COPIES; i++) {
-    loop.innerHTML += original;
+  // 🔁 duplicamos x3 para evitar cortes
+  loop.innerHTML += loop.innerHTML + loop.innerHTML + loop.innerHTML;
+
+  let position = 0;
+  let velocity = 0;
+  let targetVelocity = -2.8; // velocidad base
+  let lastScroll = window.scrollY;
+
+  function animate() {
+    // Inercia
+    velocity += (targetVelocity - velocity) * 0.09;
+    position += velocity;
+
+    // Loop infinito
+    const width = loop.scrollWidth / 4; // ya que lo duplicamos x4
+    if (position <= -width) position += width;
+    if (position >= 0) position -= width;
+
+    loop.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animate);
   }
 
-  // 2️⃣ Timeline infinita (base)
-  const loopWidth = loop.scrollWidth / COPIES;
-
-  const tl = gsap.to(loop, {
-    x: `-=${loopWidth}`,
-    duration: loopWidth / SPEED,
-    ease: "none",
-    repeat: -1
-  });
-
-  // 3️⃣ Detectar dirección de scroll
-  let lastScrollY = window.scrollY;
-  let direction = -1; // -1 izquierda | 1 derecha
-
+  // Detectar scroll (dirección)
   window.addEventListener("scroll", () => {
     const currentScroll = window.scrollY;
 
-    // Cambia dirección
-    direction = currentScroll > lastScrollY ? -1 : 1;
+    if (currentScroll > lastScroll) {
+      targetVelocity = -0.6; // scroll ↓
+    } else {
+      targetVelocity = 0.6; // scroll ↑
+    }
 
-    // Ajusta velocidad sin romper loop
-    gsap.to(tl, {
-      timeScale: direction,
-      duration: 0.3,
-      overwrite: true
-    });
-
-    lastScrollY = currentScroll;
+    lastScroll = currentScroll;
   });
+
+  animate();
 });
+
+
 
