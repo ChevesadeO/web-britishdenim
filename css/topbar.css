@@ -1,73 +1,58 @@
-/* TOP BAR */
+/* TOP BAR (LOOP + PARALLAX) */
 .top-bar {
   background: #0e4383;
   color: #ffffff;
   font-size: 0.85rem;
-  /* overflow: hidden; */
   position: relative;
+  /*overflow: hidden;  /* 🔑 clave para que el loop no se salga */
 }
 
-/* CONTENEDOR DEL LOOP */
 .top-bar-track {
   width: 100%;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
-/* LISTA */
+/* Lista en fila */
 .top-bar-loop {
   display: flex;
   align-items: center;
-  gap: 4rem;
   list-style: none;
-  padding: 0.6rem 0;
+  padding: 0;
   margin: 0;
-  width: max-content;
-  animation: topBarScroll 15s linear infinite;
+  white-space: nowrap;
+  will-change: transform; /* para mejor rendimiento al animar */
 }
 
-/* ITEM */
+/* Items */
 .top-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.45rem;
-  white-space: nowrap;
+  gap: 0.6rem;
+  padding: 0 3rem;
   font-weight: 500;
-  opacity: 0.9;
+   opacity: 0.95;
 
-  /* efecto visual */
+  /* mix blend mode */
   mix-blend-mode: screen;
 }
 
-/* ICONOS */
 .top-item i {
-  font-size: 0.9rem;
-  opacity: 0.85;
+  font-size: 0.95rem;
 }
 
-/* ANIMACIÓN */
-@keyframes topBarScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* PAUSA AL HOVER */
-.top-bar:hover .top-bar-loop {
-  animation-play-state: paused;
-}
-
-/* DARK MODE */
+/* Dark mode */
 body.dark .top-bar {
   background: #0b2f5f;
 }
 
-/* MOBILE */
+body.dark .top-item {
+  opacity: 0.95;
+}
+
+/* Mobile */
 @media (max-width: 575px) {
-  .top-bar-loop {
-    gap: 2rem;
+  .top-item {
+    padding: 0 2rem;
     font-size: 0.8rem;
   }
 }
