@@ -69,30 +69,70 @@
 }
 
 /*BOTONES*/
-/*SHADOW EFFECT*/
-.shadow-effect {
-  border: none;
-  color: white; 
-  padding: 14px 28px;
-  cursor: pointer;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #0e4383, #0b2f5f);
-  
+//* CONTENEDOR */
+.regprod-actions {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
 }
 
-.shadow-effect:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Efecto de sombra al pasar el cursor */
-}
-
-.regprod-actions .btn {
+/* BOTÓN BASE */
+.regprod-btn {
+  padding: 0.95rem 1.8rem;
   border-radius: 999px;
-  padding: 0.75rem 1.6rem;
   font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  color: #fff;
+
+  background: linear-gradient(135deg, #0e4383, #0b2f5f);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.registered-only {
-  margin-top: 1rem;
+/* HOVER */
+.regprod-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(14,67,131,0.45);
 }
+
+/* DARK MODE */
+body.dark .regprod-btn {
+  background: linear-gradient(135deg, #1f6feb, #0e4383);
+}
+
+/* BOTONES */
+.regprod-actions .btn {
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  background: linear-gradient(135deg, #0e4383, #0b2f5f);
+  border: none;
+  color: #fff;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.regprod-actions .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(14,67,131,0.45);
+}
+
+/* DARK MODE */
+body.dark .regprod-actions .btn {
+  background: linear-gradient(135deg, #1f6feb, #0e4383);
+}
+
+
+
 
 
 /* DARK MODE */
