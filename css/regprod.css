@@ -33,7 +33,7 @@
 /* CARD */
 .regprod-card {
   max-width: 720px;
-  margin: -4rem auto 0;
+  margin: 4rem auto 4rem auto;
   padding: 4rem;
   border-radius: 1.4rem;
   background: rgba(255,255,255,0.75);
