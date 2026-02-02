@@ -142,19 +142,7 @@ body.dark .map-wrapper iframe {
   filter: grayscale(100%) contrast(1.2) brightness(0.85);
 }
 
-/* MOBILE */
-@media (max-width: 575px) {
-  .map-wrapper {
-    height: 300px;
-    border-radius: 1rem;
-  }
-}
 
-@media (max-width: 575px) {
-  .map-wrapper {
-    transform: none !important;
-  }
-}
 
 /* RESPONSIVE */
 @media (max-width: 991px) {
