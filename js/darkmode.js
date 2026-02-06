@@ -1,18 +1,18 @@
-const switchToggle = document.getElementById("darkSwitch");
+const btn = document.querySelector('.theme-switch__checkbox');
+const body = document.body;
 
-switchToggle.addEventListener("change", () => {
-  document.body.classList.toggle("dark");
+// Al cargar, verificar si ya existía una preferencia guardada
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark-mode');
+  btn.checked = true;
+}
 
-  // Guardar preferencia
-  localStorage.setItem("theme",
-    document.body.classList.contains("dark") ? "dark" : "light"
-  );
-});
-
-// Mantener modo guardado
-window.addEventListener("load", () => {
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark");
-    switchToggle.checked = true;
+btn.addEventListener('change', () => {
+  if (btn.checked) {
+    body.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark'); // Guarda la preferencia
+  } else {
+    body.classList.remove('dark-mode');
+    localStorage.setItem('theme', 'light');
   }
 });
