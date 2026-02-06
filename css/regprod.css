@@ -69,7 +69,7 @@
 }
 
 /*BOTONES*/
-//* CONTENEDOR */
+/* CONTENEDOR */
 .regprod-actions {
   display: flex;
   gap: 1.2rem;
@@ -132,9 +132,6 @@ body.dark .regprod-actions .btn {
 }
 
 
-
-
-
 /* DARK MODE */
 body.dark .regprod-card {
   background-color: rgba(0, 0, 0, 0.4);  /* Blanco muy tenue */
@@ -152,5 +149,10 @@ body.dark .regprod-card {
 
 body.dark .regprod-subtitle {
   color: #a8a7a7;
+}
+body.dark .regprod-form .form-control {
+  background-color: #1e1e1e; /* Fondo oscuro para inputs */
+  border: 1px solid #444; /* Borde más claro */
+  color: #e0e0e0; /* Texto claro */
 }
 
