@@ -13,7 +13,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
-    width: 850px; /* Un poco más ancho para el estilo split */
+    width: 900px; /* Un poco más ancho para el estilo split */
     max-width: 100%;
     min-height: 550px;
 }
@@ -38,7 +38,7 @@ input:focus {
 button {
     border-radius: 5px; /* Menos redondeado para verse moderno */
     border: none;
-    background-color: #007bff; /* Azul vibrante como el de la captura */
+    background-color: #0e4383; /* Azul vibrante como el de la captura */
     color: #ffffff;
     font-size: 14px;
     font-weight: bold;
@@ -55,7 +55,7 @@ button:hover {
 
 /* La Imagen de fondo en el overlay (como la chica de la foto) */
 .overlay {
-    background: url('tu-imagen-de-ciudad.jpg'); /* AQUÍ PON TU IMAGEN */
+    background: url("../img/img6.jpeg"); /* AQUÍ PON TU IMAGEN */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -79,3 +79,67 @@ button:hover {
 .overlay-panel {
     z-index: 2; /* Para que el texto esté sobre el overlay::before */
 }
+
+/* AUTH SPLIT SCREEN */
+
+/* CONTENEDOR PRINCIPAL */
+.auth-wrapper {
+  display: flex;
+  min-height: calc(100vh - 120px); /* resta altura aproximada del header */
+}
+
+/* LADO IZQUIERDO */
+.auth-left {
+  flex: 1;
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
+
+/* LADO DERECHO */
+.auth-right {
+  flex: 1;
+  background: url("../img/img2.jpeg") right center / cover no-repeat;
+  position: relative;
+}
+
+/* Si quieres overlay elegante */
+.auth-right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
+
+.form-panel {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.form-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 991px) {
+  .auth-wrapper {
+    flex-direction: column;
+  }
+
+  .auth-right {
+    height: 300px;
+  }
+}
+
