@@ -8,11 +8,16 @@
 }
 
 .logo img {
-  height: 100px;
-  margin: 1rem 0 0.5rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  position: ri;
-  right: 15px;
+  height: 80px;
+  display: block;
+}
+
+.main-nav {
+  margin-left: auto;
+}
+
+.main-nav ul {
+  margin: 0;
 }
 
 .main-nav ul {
@@ -45,6 +50,13 @@
 .main-nav a:hover::after,
 .main-nav a.active::after {
   width: 100%;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0;
 }
 
 /* FOOTER */
