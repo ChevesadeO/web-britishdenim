@@ -15,47 +15,6 @@ body {
   color: #0e4383;
 }
 
-/* ===== DARK MODE ===== */
-body.dark {
-  background: #0f1115;
-  color: #e5e7eb;
-}
-
-/* Header */
-body.dark .main-header {
-  background: #0f1115;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-/* Nav */
-body.dark .main-nav a {
-  color: #e5e7eb;
-}
-
-body.dark .main-nav a::after {
-  background: #4ea1ff;
-}
-
-/* Cards */
-body.dark .contact-card {
-  background: #151821;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-}
-
-/* Footer */
-body.dark .footer-premium {
-  background: #0f1115;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-body.dark .footer-col p,
-body.dark .footer-col a {
-  color: #cfd3da;
-}
-
-body.dark .footer-bottom {
-  background: #0b2f5f;
-}
 
 /* ===== LAYOUT BASE ===== */
 html, body {

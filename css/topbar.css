@@ -46,11 +46,6 @@
   font-size: 0.9rem;
 }
 
-/* Dark mode */
-body.dark .top-bar {
-  background: #0b2f5f;
-}
-
 /* Mobile */
 @media (max-width: 575px) {
   .top-item {
