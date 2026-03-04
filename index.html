@@ -14,11 +14,16 @@
 <link rel="stylesheet" href="css/topbar.css">
 
 
+
 </head>
 <!-- LLAMA JS -->
 <script src="js/menu.js"></script>
+
 <!-- TOPBAR -->
 <script src="js/topbar-loop.js" defer></script>
+
+<!-- HEADER -->
+<script src="js/header.js" defer></script>
 
 
 <body>
@@ -49,14 +54,12 @@
   <div class="container header-inner">
     <!-- LOGO -->
     <div class="logo">
-        <a href="inicio.html">
+        <a href="index.html">
         <img src="img/logo3.png" alt="British Denim Logo">
       </a>
     </div>
 
 <!-- CONFIGURACION DE MENU -->
-
-<!-- MENU TOGGLE (MOBILE) -->
     <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
       <span></span>
     </button>
@@ -74,37 +77,44 @@
 </header>
 
 <!-- HERO -->
-<section class="hero hero-split">
-  <div class="hero-overlay">
-    <div class="container">
-      <div class="row align-items-center">
+<section class="hero-landing">
 
-        <!-- TEXTO -->
-        <div class="col-lg-6 hero-content">
-          <h1 class="hero-title">British Denim</h1>
-          <p class="hero-subtitle">
-            Denim que construye marca y experiencia para Latinoamérica.
-          </p>
+  <div class="hero-content">
+    <h1>Tu Denim, Tu Historia</h1>
+    <p>Descubre prendas exclusivas con estilo europeo, pensadas para Latinoamérica</p>
+    <a href="#productos" class="btn-primary">Explorar Colección</a>
+  </div>
 
-          <div class="hero-actions">
-            <a href="contactenos.html" class="btn btn-light btn-lg">
-              Contáctenos
-            </a>
-          </div>
-        </div>
+</section>
 
-        <!-- IMAGEN -->
-        <div class="col-lg-6 hero-image-wrapper">
-          <img 
-            src="img/hero-model.jpg" 
-            alt="British Denim" 
-            class="hero-image"
-          >
-        </div>
+<section id="productos" class="productos-seccion">
 
+  <h2>Colección Destacada</h2>
+
+  <div class="productos-grid">
+
+    <!-- PRODUCTO 1 -->
+    <div class="producto-card reveal">
+      <img src="img/jeans-azul.jpg" alt="Jeans Azul">
+      <div class="card-info">
+        <h3>Jeans Slim Fit</h3>
+        <p class="ref">REF-00123</p>
       </div>
     </div>
+
+    <!-- PRODUCTO 2 -->
+    <div class="producto-card reveal">
+      <img src="img/chaqueta-denim.jpg" alt="Chaqueta Denim">
+      <div class="card-info">
+        <h3>Chaqueta Denim Clásica</h3>
+        <p class="ref">REF-00987</p>
+      </div>
+    </div>
+
+    <!-- Repite según catálogo -->
+
   </div>
+
 </section>
 
 <!-- MENSAJE DE MARCA -->
@@ -117,25 +127,6 @@
           Creamos soluciones en denim que integran diseño, distribución
           y programas de fidelización para nuestros aliados.
         </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REWARDS -->
-<section class="section section-rewards">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <div class="rewards-image"></div>
-      </div>
-
-      <div class="col-lg-6">
-        <h3 class="section-title">Rewards</h3>
-        <p class="section-text">
-          Un programa diseñado para generar valor real y relaciones duraderas.
-        </p>
-        <a href="#" class="btn btn-dark mt-3">Conocer Rewards</a>
       </div>
     </div>
   </div>

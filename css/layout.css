@@ -1,10 +1,17 @@
 /* HEADER / NAV */
 .main-header {
   position: sticky;
+}
+
+.main-header {
+  position: fixed;
   top: 0;
-  background: #ffffff;
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  border-bottom: 1px solid #e5e5e5;
+
+  background: white;
+  transition: all 0.3s ease;
 }
 
 .logo img {
@@ -57,6 +64,225 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.8rem 0;
+}
+
+.hero-landing {
+  padding-top: 100px; /* ajusta según altura real del header */
+}
+
+.main-header.scrolled {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+}
+
+.main-header {
+  background: transparent;
+}
+
+.main-header.scrolled {
+  background: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.main-header {
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.main-header.scrolled {
+  transform: translateY(0);
+}
+
+/* ===== HERO ===== */
+.hero-landing {
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  background: url("../img/hero2.jpeg") center top / cover no-repeat;
+  animation: zoomHero 15s ease-in-out infinite alternate;
+}
+
+/* Overlay */
+.hero-landing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Contenido */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  max-width: 900px;
+}
+
+/* Tipografía fluida */
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin: 0 auto 1.5rem;
+  line-height: 1.4;
+}
+
+/* Botón */
+.btn-primary {
+  background: #0e4383;
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #092b55;
+  transform: translateY(-2px);
+}
+
+/* Animación sutil */
+@keyframes zoomHero {
+  from { background-size: 100%; }
+  to { background-size: 110%; }
+}
+
+.hero-content h1 {
+  letter-spacing: -1px;
+}
+
+.hero-landing {
+  padding-top: 100px; /* ajusta según altura real del header */
+}
+
+
+/* ===== HEADER ===== */
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: transparent;
+  padding: 20px 0;
+
+  transition: all 0.35s ease;
+}
+
+.main-header.scrolled .logo img {
+  filter: brightness(0);
+}
+
+.header-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+/* Nav */
+.main-header nav {
+  display: flex;
+  align-items: center;
+}
+
+.main-header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Estado al hacer scroll */
+.main-header.scrolled {
+  background: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  padding: 15px 0;
+}
+
+.main-header.scrolled nav a,
+.main-header.scrolled .logo {
+  color: #111;
+}
+
+/* ===== PRODUCTOS ===== */
+
+.productos-seccion {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.productos-seccion h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  color: #0e4383;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.producto-card {
+  background: #fff;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 1rem;
+  text-align: left;
+}
+
+.card-info h3 {
+  font-size: 1.15rem;
+  color: #111;
+  margin: 0.5rem 0;
+}
+
+.ref {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.producto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
 }
 
 /* FOOTER */
