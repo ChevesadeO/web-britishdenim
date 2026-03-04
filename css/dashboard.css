@@ -1,62 +1,220 @@
 .profile-wrapper {
-  background: #f4f6f9;
-  padding: 4rem 2rem;
-  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.profile-container {
-  max-width: 1100px;
-  margin: 0 auto;
+.profile-card {
+  background: #fff;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 40px;
 }
 
-.profile-card,
-.products-card {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-  margin-bottom: 2rem;
-}
-
-.profile-card h2 {
-  margin-bottom: 1.5rem;
-}
-
-.user-info p {
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
-.products-card h3 {
-  margin-bottom: 1.5rem;
-}
-
-.product-item {
-  padding: 1rem 0;
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   border-bottom: 1px solid #eee;
+  padding-bottom: 30px;
 }
 
-.product-item:last-child {
-  border-bottom: none;
+.profile-avatar {
+  margin-right: 20px;
 }
 
-.product-header {
+.avatar-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #fff;
+}
+
+.avatar-icon.male {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+.avatar-icon.female {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+}
+
+.profile-info h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.country {
+  color: #777;
+  margin: 5px 0;
+}
+
+.product-counter {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #2a5298;
+}
+
+.profile-actions button {
+  margin-left: 10px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-edit {
+  background: #2a5298;
+  color: #fff;
+}
+
+.btn-logout {
+  background: #eee;
+}
+
+.profile-references {
+  margin-top: 40px;
+}
+
+.reference-card {
+  background: #f9fafc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  transition: 0.2s;
+}
+
+.reference-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.ref-header {
   display: flex;
   justify-content: space-between;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 10px;
 }
 
-.ref {
-  color: #0e4383;
-}
-
-.date {
-  font-size: 0.85rem;
+.ref-date {
+  font-size: 14px;
   color: #888;
 }
 
-.description {
-  font-size: 0.9rem;
-  color: #555;
+/* =========================
+   RESPONSIVE PROFILE
+========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+  .profile-card {
+    padding: 30px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-avatar {
+    margin-bottom: 20px;
+  }
+
+  .profile-actions {
+    margin-top: 20px;
+  }
+
+  .profile-actions button {
+    margin: 5px;
+  }
+
 }
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .profile-wrapper {
+    padding: 30px 15px;
+  }
+
+  .profile-card {
+    padding: 25px;
+    border-radius: 12px;
+  }
+
+  .profile-info h2 {
+    font-size: 20px;
+  }
+
+  .product-counter {
+    font-size: 14px;
+  }
+
+  .profile-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .profile-actions button {
+    width: 100%;
+  }
+
+  .ref-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+}
+
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+
+  .avatar-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+
+  .profile-info h2 {
+    font-size: 18px;
+  }
+
+  .reference-card {
+    padding: 15px;
+  }
+
+}
+
+.profile-wrapper {
+  background: linear-gradient(135deg, #f5f7fa, #e9eff5);
+}
+
+
+.profile-wrapper {
+  background: linear-gradient(135deg, #f5f7fa, #e9eff5);
+}
+
+.btn-logout {
+  background: #f3f3f3;
+  color: #333;
+}
+
+.btn-logout:hover {
+  background: #ff4d4d;
+  color: #fff;
+}
+

@@ -20,3 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// Logout functionality
+document.getElementById("logoutBtn").addEventListener("click", function () {
+
+  // Si luego usas localStorage para sesión:
+  localStorage.removeItem("user");
+
+  // Redirige a la página principal
+  window.location.href = "index.html";
+
+});

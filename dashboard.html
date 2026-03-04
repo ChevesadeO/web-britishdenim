@@ -12,14 +12,18 @@
 
 <!-- CSS  -->
 <link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/perfil.css">
+<link rel="stylesheet" href="css/dashboard.css">
 <link rel="stylesheet" href="css/topbar.css">
+
 
 
 </head>
 <!-- LLAMA JS -->
 <script src="js/menu.js"></script>
 <script src="js/singup.js"></script>
+
+<script src="js/dashboard.js"></script>
+<script src="js/auth.js"></script>
 
 <body>
 
@@ -76,46 +80,58 @@
 <!-- PERFIL DE USUARIO -->
 <section class="profile-wrapper">
 
-  <div class="profile-container">
+  <div class="profile-card">
 
-    <!-- INFO USUARIO -->
-    <div class="profile-card">
-      <h2>Mi Perfil</h2>
+    <!-- Header Perfil -->
+    <div class="profile-header">
 
-      <div class="user-info">
-        <p><strong>Nombre:</strong> Juan Pérez</p>
-        <p><strong>País:</strong> Panamá</p>
+      <div class="profile-avatar">
+        <!-- Cambia la clase a male o female dinámicamente -->
+        <div class="avatar-icon male">
+          <i class="fa-solid fa-user"></i>
+        </div>
       </div>
+
+      <div class="profile-info">
+        <h2>Juan Pérez</h2>
+        <p class="country">🇵🇦 Panamá</p>
+        <div class="product-counter">
+          <span>2</span> productos registrados
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <button class="btn-edit">Editar Perfil</button>
+        <button class="btn-logout">Cerrar Sesión</button>
+      </div>
+
     </div>
 
-    <!-- PRODUCTOS REGISTRADOS -->
-    <div class="products-card">
+    <!-- Referencias -->
+    <div class="profile-references">
       <h3>Referencias Registradas</h3>
 
-      <div class="product-item">
-        <div class="product-header">
-          <span class="ref">REF-00123</span>
-          <span class="date">12 Enero 2026</span>
+      <div class="reference-card">
+        <div class="ref-header">
+          <strong>REF-00123</strong>
+          <span class="ref-date">12 Enero 2026</span>
         </div>
-        <p class="description">
-          Jeans slim fit azul oscuro con detalles premium.
-        </p>
+        <p>Jeans slim fit azul oscuro con detalles premium.</p>
       </div>
 
-      <div class="product-item">
-        <div class="product-header">
-          <span class="ref">REF-00987</span>
-          <span class="date">05 Febrero 2026</span>
+      <div class="reference-card">
+        <div class="ref-header">
+          <strong>REF-00987</strong>
+          <span class="ref-date">05 Febrero 2026</span>
         </div>
-        <p class="description">
-          Chaqueta denim clásica edición limitada.
-        </p>
+        <p>Chaqueta denim clásica edición limitada.</p>
       </div>
 
     </div>
 
   </div>
-</section> 
+
+</section>
     
 <!-- FOOTER -->
 <footer class="footer-premium">
