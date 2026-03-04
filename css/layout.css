@@ -1,19 +1,4 @@
 /* HEADER / NAV */
-.main-header {
-  position: sticky;
-}
-
-.main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-
-  background: white;
-  transition: all 0.3s ease;
-}
-
 .logo img {
   height: 75px;
   display: block;
@@ -71,25 +56,75 @@
 }
 
 .main-header.scrolled {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.8);
-}
-
-.main-header {
-  background: transparent;
-}
-
-.main-header.scrolled {
   background: white;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
-.main-header {
-  transform: translateY(0);
-  transition: all 0.3s ease;
-}
 
 .main-header.scrolled {
   transform: translateY(0);
+}
+
+/* ===== HEADER ===== */
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: transparent;
+  padding: 20px 0;
+
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+/* Contenedor interno */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo img {
+  height: 75px;
+  transition: filter 0.3s ease;
+}
+
+/* Nav */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Estado cuando se hace scroll */
+.main-header.scrolled {
+  background: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  padding: 15px 0;
+}
+
+/* Links negros al hacer scroll */
+.main-header.scrolled .main-nav a {
+  color: #111;
+}
+
+/* Si tu logo es blanco y necesitas volverlo negro */
+.main-header.scrolled .logo img {
+  filter: brightness(0);
 }
 
 /* ===== HERO ===== */
@@ -167,68 +202,6 @@
   padding-top: 100px; /* ajusta según altura real del header */
 }
 
-
-/* ===== HEADER ===== */
-
-.main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-
-  background: transparent;
-  padding: 20px 0;
-
-  transition: all 0.35s ease;
-}
-
-.main-header.scrolled .logo img {
-  filter: brightness(0);
-}
-
-.header-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Logo */
-.logo {
-  color: white;
-  font-weight: 700;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-/* Nav */
-.main-header nav {
-  display: flex;
-  align-items: center;
-}
-
-.main-header nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 25px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-/* Estado al hacer scroll */
-.main-header.scrolled {
-  background: white;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  padding: 15px 0;
-}
-
-.main-header.scrolled nav a,
-.main-header.scrolled .logo {
-  color: #111;
-}
 
 /* ===== PRODUCTOS ===== */
 
