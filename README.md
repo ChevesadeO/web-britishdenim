@@ -79,8 +79,8 @@ Inspiración en marcas de moda premium con enfoque minimalista y editorial.
 
 Autora
 
-Desarrollado por Chevesade  
-Proyecto académico / Portafolio
+Desarrollado por Chevesade Ornano
+Proyecto académico / Páctica profesional 
 
 Licencia
 
