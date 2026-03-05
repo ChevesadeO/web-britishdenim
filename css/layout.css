@@ -513,14 +513,34 @@ font-size:30px;
 
 /* FOOTER BAR */
 .footer-bar {
-  width: 100%;
+  width: 100vw;
   background: #0e4383;
   color: #ffffff;
   text-align: center;
   font-size: 0.85rem;
   padding: 0.9rem 1rem;
   margin-top: 4rem;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
+.footer-premium {
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 5rem 0 0;
+  overflow: hidden;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+}
+
+
 
 /* MENU MOBILE */
 .menu-toggle {
