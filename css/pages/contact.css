@@ -1,7 +1,7 @@
 /* CONTACT SECTION */
 .contact-modern {
   position: relative;
-  padding: 6rem 0;
+  padding: 6rem 1rem;
 }
 
 /* BACKGROUND */
@@ -21,9 +21,6 @@
   background: rgba(255,255,255,0.35);
 }
 
-body.dark .contact-bg::after {
-  background: rgba(0,0,0,0.45);
-}
 
 /* GLASS CARD */
 .contact-card {
@@ -49,12 +46,6 @@ body.dark .contact-bg::after {
   transform: translateY(0);
 }
 
-body.dark .contact-card {
-  background: rgba(20,22,25,0.6);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-}
-
 /* INFO PANEL */
 .contact-info {
   background: rgba(245,246,248,0.7);
@@ -62,10 +53,6 @@ body.dark .contact-card {
   -webkit-backdrop-filter: blur(16px) saturate(120%);
   border-radius: 0.9rem;
   padding: 2rem;
-}
-
-body.dark .contact-info {
-  background: rgba(27,30,34,0.6);
 }
 
 /* FORM */
@@ -76,10 +63,6 @@ body.dark .contact-info {
   backdrop-filter: blur(6px);
 }
 
-body.dark .contact-form-modern .form-control {
-  background: rgba(26,28,31,0.85);
-  color: #eaeaea;
-}
 
 /* BUTTON */
 .contact-form-modern .btn {
@@ -135,13 +118,6 @@ body.dark .contact-form-modern .btn {
   transition: transform 0.2s linear;
   will-change: transform;
 }
-
-
-/* DARK MODE */
-body.dark .map-wrapper iframe {
-  filter: grayscale(100%) contrast(1.2) brightness(0.85);
-}
-
 
 
 /* RESPONSIVE */

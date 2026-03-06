@@ -108,8 +108,8 @@
   color: #888;
 }
 
-/* =========================
-   RESPONSIVE PROFILE
+/* ===================
+RESPONSIVE PROFILE
 ========================= */
 
 /* Tablet */
@@ -198,11 +198,6 @@
   }
 
 }
-
-.profile-wrapper {
-  background: linear-gradient(135deg, #f5f7fa, #e9eff5);
-}
-
 
 .profile-wrapper {
   background: linear-gradient(135deg, #f5f7fa, #e9eff5);

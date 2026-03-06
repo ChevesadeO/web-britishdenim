@@ -1,22 +1,9 @@
-/* base.css */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html, body {
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #0e4383;
   overflow-x: hidden;
 }
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #0e4383;
-}
-
-
-/* ===== LAYOUT BASE ===== */
 html, body {
   height: 100%;
 }
@@ -28,6 +15,6 @@ body {
 }
 
 main {
-  flex: 30px; /* 👈 ESTO empuja el footer */
+  flex: 1;
 }
 

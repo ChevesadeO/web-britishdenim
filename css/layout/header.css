@@ -1,0 +1,74 @@
+/* ===== HEADER ===== */
+
+.main-header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 1000;
+background: transparent;
+padding: 20px 0;
+transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+.header-inner {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.logo img {
+height: 75px;
+transition: filter 0.3s ease;
+}
+
+.main-nav {
+margin-left: auto;
+}
+
+.main-nav ul {
+list-style: none;
+display: flex;
+gap: 2.5rem;
+padding: 0;
+margin: 0;
+}
+
+.main-nav a {
+text-decoration: none;
+color: white;
+font-weight: 500;
+potransition: color 0.3s ease;
+}
+
+.main-nav a::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: -6px;
+width: 0;
+height: 1px;
+background: #0e4383;
+transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+width: 100%;
+}
+
+/* HEADER SCROLL */
+
+.main-header.scrolled {
+background: white;
+box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+padding: 15px 0;
+}
+
+.main-header.scrolled .main-nav a {
+color: #111;
+}
+
+.main-header.scrolled .logo img {
+filter: brightness(0);
+}
