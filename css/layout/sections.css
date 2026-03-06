@@ -1,0 +1,46 @@
+/* ===== GLOBAL SECTIONS ===== */
+
+/* sección estándar */
+.section{
+padding:100px 0;
+position:relative;
+}
+
+/* sección más compacta */
+.section-sm{
+padding:60px 0;
+}
+
+/* sección grande (landing / marketing) */
+.section-lg{
+padding:140px 0;
+}
+
+/* fondo gris suave */
+.section-light{
+background:#f8f8f8;
+}
+
+/* fondo oscuro */
+.section-dark{
+background:#111;
+color:#fff;
+}
+
+/* títulos de sección */
+.section-title{
+font-size:36px;
+text-align:center;
+margin-bottom:60px;
+font-weight:600;
+}
+
+/* subtítulo */
+.section-subtitle{
+text-align:center;
+max-width:700px;
+margin:0 auto 50px auto;
+color:#666;
+font-size:18px;
+line-height:1.6;
+}
