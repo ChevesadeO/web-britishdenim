@@ -1,10 +1,8 @@
-/* CONTACT SECTION */
 .contact-modern {
   position: relative;
   padding: 6rem 1rem;
 }
 
-/* BACKGROUND */
 .contact-bg {
   position: absolute;
   inset: 0;
@@ -21,107 +19,25 @@
   background: rgba(255,255,255,0.35);
 }
 
+/* CARD */
 
-/* GLASS CARD */
 .contact-card {
   position: relative;
-  z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
   padding: 3rem;
   border-radius: 1.2rem;
   background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(18px) saturate(120%);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(18px);
   box-shadow: 0 40px 80px rgba(0,0,0,0.18);
-
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.contact-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* MAP */
 
-/* INFO PANEL */
-.contact-info {
-  background: rgba(245,246,248,0.7);
-  backdrop-filter: blur(16px) saturate(120%);
-  -webkit-backdrop-filter: blur(16px) saturate(120%);
-  border-radius: 0.9rem;
-  padding: 2rem;
-}
-
-/* FORM */
-.contact-form-modern .form-control {
-  border-radius: 0.6rem;
-  padding: 0.75rem;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(6px);
-}
-
-
-/* BUTTON */
-.contact-form-modern .btn {
-  padding: 0.95rem 1.6rem;
-  border-radius: 999px;
-  font-weight: 600;
-  text-transform: uppercase;
-  background: linear-gradient(135deg, #0e4383, #0b2f5f);
-  border: none;
-  color: #fff;
-  transition: all 0.25s ease;
-}
-
-.contact-form-modern .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(14,67,131,0.45);
-}
-
-body.dark .contact-form-modern .btn {
-  background: linear-gradient(135deg, #1f6feb, #0e4383);
-}
-
-/* MAPA CONTACTO CENTRADO */
-
-.contact-map {
-  padding: 4rem 0 6rem;
-}
-
-/* CONTENEDOR CENTRADO */
 .map-wrapper {
-  max-width: 1000px;      /* controla el ancho */
-  margin: 0 auto;         /* centra horizontalmente */
-  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   height: 420px;
-
   border-radius: 1.2rem;
   overflow: hidden;
-
-  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
-}
-
-/* MAPA */
-.map-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  filter: grayscale(20%) contrast(1.05);
-}
-
-/* MAPA PARALLAX */
-.map-wrapper {
-  transform: translateY(0);
-  transition: transform 0.2s linear;
-  will-change: transform;
-}
-
-
-/* RESPONSIVE */
-@media (max-width: 991px) {
-  .contact-modern { padding: 4rem 1rem; }
-  .contact-card { padding: 2rem; }
 }
