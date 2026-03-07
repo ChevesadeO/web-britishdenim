@@ -9,7 +9,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: url("../img/hero2.jpeg") center center / cover no-repeat;
+  background: url("../../img/hero2.jpeg") center center / cover no-repeat;
   animation: zoomHero 15s ease-in-out infinite alternate;
 }
 
