@@ -1,0 +1,39 @@
+/* ======================
+   BASE
+====================== */
+
+@import url('./base/reset.css');
+@import url('./base/base.css');
+
+
+/* ======================
+   COMPONENTS
+====================== */
+
+@import url('./components/buttons.css');
+@import url('./components/cards.css');
+@import url('./components/forms.css');
+@import url('./components/glass.css');
+@import url('./components/animations.css');
+
+
+/* ======================
+   LAYOUT
+====================== */
+
+@import url('./layout/header.css');
+@import url('./layout/footer.css');
+@import url('./layout/topbar.css');
+@import url('./layout/sections.css');
+@import url('./layout/loader.css');
+
+
+/* ======================
+   PAGES
+====================== */
+
+@import url('./pages/index.css');
+@import url('./pages/dashboard.css');
+@import url('./pages/contact.css');
+@import url('./pages/perfil.css');
+@import url('./pages/regprod.css');
