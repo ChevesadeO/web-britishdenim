@@ -1,34 +1,25 @@
 /* ===== HEADER ===== */
 .main-header{
-
 position:fixed;
-top:35px;
+top:40px; /* deja espacio para la topbar */
 left:0;
 width:100%;
 z-index:1000;
-
-background:rgba(255,255,255,0.08);
-backdrop-filter: blur(10px);
-
-transition: all 0.4s ease;
-
+background:transparent;
+transition:all 0.4s ease;
 }
 
 .header-inner{
-
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 padding:18px 0;
 
 }
 
 .logo img{
-
 height:70px;
 transition: all 0.3s ease;
-
 }
 
 .main-header.scrolled .logo img {
@@ -106,3 +97,19 @@ height:55px;
   filter: brightness(0);
 }
 
+/* RESPONSIVE */
+@media (max-width:768px){
+
+.nav-menu{
+display:none;
+}
+
+.header-container{
+padding:15px 20px;
+}
+
+.logo img{
+height:40px;
+}
+
+}
