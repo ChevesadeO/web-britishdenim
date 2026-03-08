@@ -10,7 +10,7 @@ html, body {
 
 .auth-image {
   flex: 1;
-  background: url("../img/img9.jpeg") center center / cover no-repeat;
+  background: url("/img/img11.jpeg") center center / cover no-repeat;
 }
 
 .auth-form {
@@ -75,7 +75,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* AUTH SPLIT SCREEN */
 
 /* CONTENEDOR PRINCIPAL */
 .auth-wrapper {
@@ -116,26 +115,5 @@ button:hover {
 
 .form-panel.active {
   display: block;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 991px) {
-  .auth-wrapper {
-    flex-direction: column;
-  }
-
-  .auth-right {
-    height: 300px;
-  }
 }
 

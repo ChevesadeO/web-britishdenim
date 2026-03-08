@@ -1,6 +1,6 @@
 .regprod-hero {
   background: linear-gradient(rgba(14,67,131,0.55),rgba(14,67,131,0.55)),
-  url("../img/denim.jpg") center/cover no-repeat;
+  url("/img/denim.jpg") center/cover no-repeat;
   padding: 2rem 0;
   color: #fff;
 }

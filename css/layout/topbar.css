@@ -1,55 +1,8 @@
-/* TOP BAR – CINÉTICO */
-
-.top-bar {
-  position: sticky;
-  top: 0;
-  z-index: 1100;
-
-  background: #0e4383;
-  color: #fff;
-  font-size: 0.85rem;
-
-  /*overflow: hidden;  SOLO aquí */
-}
-
-.top-bar-track {
-  width: 100%;
-  white-space: nowrap;
-}
-
-.top-bar-loop {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  padding: 0.35rem 0;
-  margin: 0;
-
-  will-change: transform;
-}
-
-/* Items */
-.top-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-
-  padding: 0 3rem;
-  font-weight: 500;
-  white-space: nowrap;
-
-  mix-blend-mode: screen;
-  opacity: 0.95;
-}
-
-/* Iconos */
-.top-item i {
-  font-size: 0.9rem;
-}
-
-/* Mobile */
-@media (max-width: 575px) {
-  .top-item {
-    padding: 0 1.5rem;
-    font-size: 0.8rem;
-  }
+.top-bar{
+background:#0e4383;
+color:white;
+text-align:center;
+font-size:14px;
+padding:6px 0;
+letter-spacing:1px;
 }

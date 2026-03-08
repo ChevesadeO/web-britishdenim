@@ -45,12 +45,4 @@ left: -40px;
 animation: loadingLine 1.4s infinite ease;
 }
 
-@keyframes loadingLine {
-0% { left: -40px; }
-100% { left: 120px; }
-}
 
-@keyframes fadeLogo {
-from { opacity: 0.6; }
-to { opacity: 1; }
-}
