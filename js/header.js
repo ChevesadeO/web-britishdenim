@@ -1,20 +1,8 @@
-window.addEventListener("scroll", function () {
-
-  const header = document.querySelector(".main-header");
-
-  if (window.scrollY > 50) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-
-});
-
-window.addEventListener("scroll", function(){
-
 const header = document.querySelector(".main-header");
 
-if(window.scrollY > 80){
+window.addEventListener("scroll", () => {
+
+if(window.scrollY > 60){
 
 header.classList.add("scrolled");
 

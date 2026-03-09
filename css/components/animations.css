@@ -34,3 +34,48 @@
 from { opacity: 0.6; }
 to { opacity: 1; }
 }
+
+/* Para el efecto de fadeIn en los formularios de perfil */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ANIMACION ENTRADA PAGINA CONTACTENOS */
+
+.fade-up{
+
+opacity:0;
+
+transform:translateY(40px);
+
+animation:fadeUp .8s ease forwards;
+
+}
+
+.fade-delay-1{
+animation-delay:.2s;
+}
+
+.fade-delay-2{
+animation-delay:.4s;
+}
+
+.fade-delay-3{
+animation-delay:.6s;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}

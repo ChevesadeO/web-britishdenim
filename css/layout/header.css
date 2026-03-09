@@ -1,100 +1,89 @@
 /* ===== HEADER ===== */
 .main-header{
 position:fixed;
-top:40px; /* deja espacio para la topbar */
+top:40px; /* debajo de topbar */
 left:0;
 width:100%;
-z-index:1000;
+z-index:2000;
 background:transparent;
-transition:all 0.4s ease;
+transition:
+background .35s ease,
+box-shadow .35s ease,
+backdrop-filter .35s ease;
 }
 
+/* contenedor interno */
 .header-inner{
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:18px 0;
-
+width:100%;
+max-width:1400px;
+margin:0 auto;
+padding:0 20px;
 }
 
+.header-inner{
+padding:0 50px;
+}
+
+/* LOGO */
 .logo img{
-height:70px;
-transition: all 0.3s ease;
+height:75px;
+transition:
+height .35s ease,
+filter .35s ease;
 }
 
-.main-header.scrolled .logo img {
-  height: 55px !important;
-}
-
-.main-header.scrolled .logo img{
-  height:50px;
-}
-
-.logo img{
-display:block;
-}
-
-.main-nav {
-  margin-left: auto;
-}
-
+/* NAV */
 .main-nav ul{
-
-display:flex;
-gap:40px;
 list-style:none;
-
+display:flex;
+gap:2.5rem;
+padding:0;
+margin:0;
 }
 
 .main-nav a{
-color:rgb(252, 252, 252);
 text-decoration:none;
+color:#fff;
 font-weight:500;
-letter-spacing:1px;
+position:relative;
 transition:color .3s ease;
-
 }
 
-.main-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 1px;
-  background: #0e4383;
-  transition: width 0.3s ease;
+/* hover underline */
+.main-nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0;
+height:1px;
+background:#0e4383;
+transition:width .3s ease;
 }
 
-.main-nav a:hover::after,
-.main-nav a.active::after {
-  width: 100%;
+.main-nav a:hover::after{
+width:100%;
 }
 
-/* HEADER SCROLL */
-
+/* ===== HEADER SCROLL ===== */
 .main-header.scrolled{
-background:rgb(0, 0, 0);
+background:rgba(255,255,255,0.95);
+backdrop-filter:blur(10px);
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
-
 }
 
+/* links negros */
 .main-header.scrolled .main-nav a{
 color:#111;
-
 }
 
+/* logo negro */
 .main-header.scrolled .logo img{
-height:55px;
-
-}
-
-.main-header.scrolled .main-nav a {
-  color: #0e4383;
-}
-
-.main-header.scrolled .logo img {
-  filter: brightness(0);
+filter:brightness(0);
+height:60px;
 }
 
 /* RESPONSIVE */
