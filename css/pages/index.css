@@ -1,6 +1,7 @@
 /* ===== HERO ===== */
 .hero-landing{
 height:100vh;
+width: 100%;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -12,7 +13,7 @@ background:url("../../img/hero2.jpeg") center/cover no-repeat;
 .hero-landing::before{
 content:"";
 position:absolute;
-top:0;
+top: 40px;;
 left:0;
 width:100%;
 height:100%;
@@ -23,7 +24,11 @@ background:rgba(0,0,0,0.35);
 position:relative;
 z-index:2;
 color:white;
-max-width:700px;
+text-align: center;
+max-width:1200px;
+
+/* IMPORTANTE */
+margin-top: 80px;
 }
 
 .hero-landing .container{
@@ -32,7 +37,7 @@ z-index: 2;
 }
 
 .hero-content h1{
-font-size:3rem;
+font-size:3rem; 
 font-weight:600;
 letter-spacing:2px;
 margin-bottom: 1500px;
