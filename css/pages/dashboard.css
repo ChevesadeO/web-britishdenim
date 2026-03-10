@@ -1,18 +1,23 @@
 .profile-wrapper {
-  background: #f5f7fa;
-  padding: 50px 20px;
-  display: flex;
-  justify-content: center;
-  padding-top: 180px;
+background:
+linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+url("/img/img6.jpeg") center/cover no-repeat;
+padding:50px 20px;
+padding-top:180px;
+display:flex;
+justify-content:center;
 }
 
+
 .profile-card {
-  background: #fff;
-  width: 100%;
-  max-width: 1000px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  padding: 40px;
+background: rgba(255,255,255,0.92);
+backdrop-filter: blur(8px);
+width:100%;
+max-width:1000px;
+border-radius:16px;
+box-shadow:
+0 20px 60px rgba(0,0,0,0.25);
+padding:40px;
 }
 
 .profile-header {
