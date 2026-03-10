@@ -1,0 +1,113 @@
+@keyframes zoomHero {
+  from { background-size: 100%; }
+  to { background-size: 110%; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 991px) {
+  .auth-wrapper {
+    flex-direction: column;
+  }
+
+  .auth-right {
+    height: 300px;
+  }
+}
+
+
+@keyframes loadingLine {
+0% { left: -40px; }
+100% { left: 120px; }
+}
+
+@keyframes fadeLogo {
+from { opacity: 0.6; }
+to { opacity: 1; }
+}
+
+/* Para el efecto de fadeIn en los formularios de perfil */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ANIMACION ENTRADA PAGINA CONTACTENOS */
+
+.fade-up{
+
+opacity:0;
+
+transform:translateY(40px);
+
+animation:fadeUp .8s ease forwards;
+
+}
+
+.fade-delay-1{
+animation-delay:.2s;
+}
+
+.fade-delay-2{
+animation-delay:.4s;
+}
+
+.fade-delay-3{
+animation-delay:.6s;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Animación sutil */ 
+@keyframes zoomHero { 
+from { background-size: 100%; } 
+to { background-size: 110%; } }
+
+
+/* ANIMACION SCROLL */ 
+.reveal { 
+  opacity: 0; 
+  transform: translateY(40px); 
+  transition: opacity 0.8s ease, 
+  transform 0.8s ease; 
+} 
+
+.reveal.visible { 
+  opacity: 1; 
+  transform: translateY(0); 
+} 
+
+/* variantes */ 
+.reveal-left { 
+  transform: translateX(-40px); 
+} 
+
+.reveal-right { 
+  transform: translateX(40px); 
+} 
+.reveal.visible.reveal-left, 
+.reveal.visible.reveal-right { 
+  transform: translateX(0); 
+}
