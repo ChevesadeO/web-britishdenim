@@ -3,6 +3,7 @@
   padding: 50px 20px;
   display: flex;
   justify-content: center;
+  padding-top: 180px;
 }
 
 .profile-card {
@@ -86,7 +87,7 @@
 
 .reference-card {
   background: #f9fafc;
-  padding: 20px;
+  padding: 25px;
   border-radius: 12px;
   margin-bottom: 20px;
   transition: 0.2s;
@@ -106,6 +107,16 @@
 .ref-date {
   font-size: 14px;
   color: #888;
+}
+
+.dashboard-loader{
+position:fixed;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+background:white;
+z-index:9999;
 }
 
 /* ===================

@@ -30,3 +30,25 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
   window.location.href = "index.html";
 
 });
+
+
+const Auth = {
+
+login(user){
+localStorage.setItem("bd_user", JSON.stringify(user));
+},
+
+logout(){
+localStorage.removeItem("bd_user");
+window.location.href = "perfil.html";
+},
+
+getUser(){
+return JSON.parse(localStorage.getItem("bd_user"));
+},
+
+isAuthenticated(){
+return localStorage.getItem("bd_user") !== null;
+}
+
+};

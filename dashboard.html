@@ -24,9 +24,13 @@
   <p>Autentica tu producto original British Denim</p>
 </div>
 
-
 <!-- HEADER -->
 <div id="header"></div>
+<!-- LOADER SPINNER -->
+<div id="dashboardLoader" class="dashboard-loader">
+<div class="spinner-border text-primary"></div>
+</div>
+
 
 <!-- PERFIL DE USUARIO -->
 <section class="profile-wrapper">
@@ -36,12 +40,14 @@
     <!-- Header Perfil -->
     <div class="profile-header">
 
-      <div class="profile-avatar">
-        <!-- Cambia la clase a male o female dinámicamente -->
-        <div class="avatar-icon male">
-          <i class="fa-solid fa-user"></i>
-        </div>
-      </div>
+    <div class="profile-avatar">
+    <label for="avatarUpload" class="avatar-icon male" id="avatarPreview">
+    <i class="fa-solid fa-user"></i>
+    </label>
+
+<input type="file" id="avatarUpload" accept="image/*" hidden>
+
+</div>
 
       <div class="profile-info">
         <h2>Juan Pérez</h2>
@@ -52,7 +58,9 @@
       </div>
 
       <div class="profile-actions">
-        <button class="btn-edit">Editar Perfil</button>
+      <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editProfileModal"> 
+        Editar Perfil
+      </button>
         <button class="btn-logout" id="logoutBtn">
         <i class="fa-solid fa-right-from-bracket"></i>
         Cerrar Sesión
@@ -63,15 +71,9 @@
 
     <!-- Referencias -->
     <div class="profile-references">
-      <h3>Referencias Registradas</h3>
-
-      <div class="reference-card">
-        <div class="ref-header">
-          <strong>REF-00123</strong>
-          <span class="ref-date">12 Enero 2026</span>
-        </div>
-        <p>Jeans slim fit azul oscuro con detalles premium.</p>
-      </div>
+    <h3>Referencias Registradas</h3>
+    <div id="referencesContainer"></div>
+    </div>
 
       <div class="reference-card">
         <div class="ref-header">
@@ -89,6 +91,15 @@
     
 <!-- FOOTER -->
 <div id="footer"></div>
+
+<!-- toast elegante -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div id="productToast" class="toast">
+<div class="toast-body">
+Producto registrado correctamente
+</div>
+</div>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -109,6 +120,115 @@
 <script src="js/dashboard.js"></script>
 <script src="js/auth.js"></script>
 
-		
+<!-- MODAL EDITAR PERFIL -->
+<div class="modal fade" id="editProfileModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <form id="editProfileForm" method="POST" action="/api/profile/update">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Perfil</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <label class="form-label">Usuario (Email)</label>
+              <input type="email" class="form-control" name="username" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" name="email" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" name="first_name">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Apellido</label>
+              <input type="text" class="form-control" name="last_name">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Móvil</label>
+              <input type="tel" class="form-control" name="mobile">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">País</label>
+              <select class="form-select" name="country">
+
+<option>Colombia</option>
+<option>Costa Rica</option>
+<option>Rep. Dominicana</option>
+<option>Guatemala</option>
+<option>Honduras</option>
+<option>Jamaica</option>
+<option>Nicaragua</option>
+<option>Panamá</option>
+<option>El Salvador</option>
+<option>Estados Unidos</option>
+<option>Uruguay</option>
+<option>Venezuela</option>
+
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Dirección</label>
+              <input type="text" class="form-control" name="address">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Facebook</label>
+              <input type="url" class="form-control" name="facebook">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Instagram</label>
+              <input type="url" class="form-control" name="instagram">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">X (Twitter)</label>
+              <input type="url" class="form-control" name="twitter">
+            </div>
+
+            <hr>
+
+            <div class="col-md-6">
+              <label class="form-label">Nueva Contraseña</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Confirmar Contraseña</label>
+              <input type="password" class="form-control" name="confirm_password">
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">
+            Guardar Cambios
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>	
+
+
 </body>
 </html>
