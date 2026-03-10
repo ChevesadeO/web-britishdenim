@@ -100,9 +100,11 @@ background:#fff;
 .collection-grid{ 
 display:grid; 
 grid-template-columns:repeat(3,1fr); 
-gap:25px; max-width:1200px; 
+gap:25px; 
+max-width:1200px; 
 margin:auto; 
 } 
+
 .collection-item{ 
 overflow:hidden; 
 }
