@@ -219,3 +219,32 @@ const toast = new bootstrap.Toast(document.getElementById('productToast'));
 
 toast.show();
 
+//loader al cargar dashboard
+window.addEventListener("load", function(){
+
+const loader = document.getElementById("dashboardLoader");
+
+if(loader){
+loader.style.display = "none";
+}
+
+});
+
+
+
+//loader con fade al cargar dashboard
+window.addEventListener("load", () => {
+
+const loader = document.getElementById("dashboardLoader");
+
+setTimeout(()=>{
+
+loader.style.opacity="0";
+
+setTimeout(()=>{
+loader.style.display="none";
+},400);
+
+},400);
+
+});
