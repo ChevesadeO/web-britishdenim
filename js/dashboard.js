@@ -1,10 +1,17 @@
-// Simulación de género de usuario para avatar
-const generoUsuario = "male"; // o "female"
+// GENERO DEL AVATAR
+
+const generoUsuario = "male";
 
 const avatar = document.querySelector(".avatar-icon");
-avatar.classList.remove("male", "female");
-avatar.classList.add(generoUsuario);
 
+if(avatar){
+avatar.classList.remove("male","female");
+avatar.classList.add(generoUsuario);
+}
+
+
+
+// VALIDACION FORMULARIO PERFIL
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -18,33 +25,35 @@ const pass = form.querySelector("[name=password]").value;
 const confirm = form.querySelector("[name=confirm_password]").value;
 
 if(pass !== confirm){
+
 e.preventDefault();
 alert("Las contraseñas no coinciden");
-}
-
-});
 
 }
 
 });
 
+}
+
+});
 
 
-//Foto de perfil persistente (guardada)
+// AVATAR PERSISTENTE
+
 const avatarUpload = document.getElementById("avatarUpload");
 const avatarPreview = document.getElementById("avatarPreview");
 
-/* cargar avatar guardado */
-
 const savedAvatar = localStorage.getItem("bd_avatar");
 
-if(savedAvatar){
+if(savedAvatar && avatarPreview){
+
 avatarPreview.style.backgroundImage = `url(${savedAvatar})`;
 avatarPreview.style.backgroundSize = "cover";
 avatarPreview.innerHTML = "";
+
 }
 
-/* subir avatar */
+if(avatarUpload){
 
 avatarUpload.addEventListener("change", function(){
 
@@ -64,7 +73,7 @@ avatarPreview.innerHTML = "";
 
 localStorage.setItem("bd_avatar", img);
 
-}
+};
 
 reader.readAsDataURL(file);
 
@@ -72,117 +81,50 @@ reader.readAsDataURL(file);
 
 });
 
-// Simulación de datos de usuario
-const userData = {
-
-name: "Juan Pérez",
-country: "Panamá",
-products: 2,
-avatar: null,
-
-references: [
-
-{
-ref: "REF-00123",
-date: "12 Enero 2026",
-description: "Jeans slim fit azul oscuro con detalles premium"
-},
-
-{
-ref: "REF-00987",
-date: "05 Febrero 2026",
-description: "Chaqueta denim clásica edición limitada"
 }
 
-]
+// DATOS DE USUARIO
+
+const userData = {
+
+name:"Juan Pérez",
+country:"Panamá"
 
 };
 
-
-//Renderizar datos en el dashboard
 function loadUserProfile(){
 
 document.querySelector(".profile-info h2").textContent = userData.name;
 
-document.querySelector(".country").textContent = "🇵🇦 " + userData.country;
-
-document.querySelector(".product-counter span").textContent = userData.products;
+document.querySelector(".country").textContent =
+"🇵🇦 " + userData.country;
 
 }
 
 loadUserProfile();
 
-// Carga dinámica de referencias
-function loadReferences(){
 
-const container = document.getElementById("referencesContainer");
+// CONTADOR PRODUCTOS
 
-container.innerHTML = "";
-
-userData.references.forEach(ref => {
-
-const card = document.createElement("div");
-
-card.classList.add("reference-card");
-
-card.innerHTML = `
-
-<div class="ref-header">
-<strong>${ref.ref}</strong>
-<span class="ref-date">${ref.date}</span>
-</div>
-
-<p>${ref.description}</p>
-
-`;
-
-container.appendChild(card);
-
-});
-
-}
-
-loadReferences();
-
-
-//loading spinner al cargar dashboard
-window.addEventListener("load", () => {
-
-setTimeout(() => {
-
-document.getElementById("dashboardLoader").style.display = "none";
-
-}, 800);
-
-});
-
-
-//confirmacion visual al guardar perfil
-form.addEventListener("submit", function(e){
-
-e.preventDefault();
-
-alert("Perfil actualizado correctamente");
-
-});
-
-
-// Contador de productos dinámico
 function updateProductCounter(){
 
 const refs = JSON.parse(localStorage.getItem("bd_products")) || [];
 
-document.querySelector(".product-counter span").textContent = refs.length;
+document.querySelector(".product-counter span").textContent =
+refs.length;
 
 }
 
 updateProductCounter();
 
 
-//referencias registradas dinamicas 
+// REFERENCIAS REGISTRADAS
+
 function loadReferences(){
 
 const container = document.getElementById("referencesContainer");
+
+if(!container) return;
 
 const products = JSON.parse(localStorage.getItem("bd_products")) || [];
 
@@ -214,37 +156,18 @@ container.appendChild(card);
 loadReferences();
 
 
-//toast elegante al registrar producto
-const toast = new bootstrap.Toast(document.getElementById('productToast'));
+// LOADER DASHBOARD
 
-toast.show();
-
-//loader al cargar dashboard
-window.addEventListener("load", function(){
-
-const loader = document.getElementById("dashboardLoader");
-
-if(loader){
-loader.style.display = "none";
-}
-
-});
-
-
-
-//loader con fade al cargar dashboard
 window.addEventListener("load", () => {
 
 const loader = document.getElementById("dashboardLoader");
 
-setTimeout(()=>{
-
-loader.style.opacity="0";
+if(loader){
 
 setTimeout(()=>{
-loader.style.display="none";
-},400);
+loader.style.display = "none";
+},800);
 
-},400);
+}
 
 });

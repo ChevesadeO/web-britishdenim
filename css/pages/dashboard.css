@@ -1,12 +1,11 @@
 .profile-wrapper {
 min-height: 100vh;
-background:
-linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-url("../img/denim6.jpg") center/cover no-repeat;
+background-image: url("/img/denim6.jpg");
 padding:180px 20px 50px;
 display:flex;
 justify-content:center;
 }
+
 
 
 .profile-card {
