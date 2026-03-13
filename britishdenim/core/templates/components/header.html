@@ -1,0 +1,45 @@
+{% load static %}
+
+<header class="main-header">
+
+  <div class="container header-inner">
+
+    <div class="logo">
+      <a href="{% url 'index' %}">
+        <img src="{% static 'img/logo3.png' %}" alt="British Denim">
+      </a>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+
+        <li>
+          <a href="{% url 'index' %}">
+            Inicio
+          </a>
+        </li>
+
+        <li>
+          <a href="{% url 'regiprod' %}">
+            Registrar producto
+          </a>
+        </li>
+
+        <li>
+          <a href="{% url 'contacto' %}">
+            Contáctenos
+          </a>
+        </li>
+
+        <li>
+          <a href="{% url 'perfil' %}">
+            Ingresar
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+
+  </div>
+
+</header>

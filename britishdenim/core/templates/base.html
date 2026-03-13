@@ -1,16 +1,27 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-    <title>British Denim</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<meta charset="UTF-8">
+<title>British Denim</title>
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+{% block extra_css %}{% endblock %}
+
 </head>
 
 <body>
 
+{% include "components/header.html" %}
+
 {% block content %}
 {% endblock %}
 
-<script src="{% static 'js/script.js' %}"></script>
+{% include "components/footer.html" %}
+
+{% block extra_js %}{% endblock %}
+
 </body>
 </html>
