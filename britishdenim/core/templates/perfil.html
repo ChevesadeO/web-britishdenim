@@ -1,33 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>British Denim</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+{% load static %}
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/perfil.css' %}">
+{% endblock %}
 
-<!-- CSS  -->
-<link rel="stylesheet" href="css/main.css">
+{% block content %}
 
-<link rel="stylesheet" href="css/pages/perfil.css">
-
-
-</head>
-
-<body>
-
- <!-- TOP BAR -->
-
+<!-- TOP BAR -->
 <div class="top-bar">
   <p>Autentica tu producto original British Denim</p>
 </div>
-
-<!-- HEADER -->
-<div id="header"></div>
 
 <!-- SIGN IN / SIGN UP FORM -->
 <section class="auth-wrapper">
@@ -40,15 +23,17 @@
         <h2>Iniciar Sesión</h2>
 
         <form method="POST">
+          {% csrf_token %}
+
           <div class="form-group">
-            <input type="email" placeholder="Correo electrónico" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
           </div>
 
           <div class="form-group">
-            <input type="password" placeholder="Contraseña" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
           </div>
 
-          <button href=dashboard.html id="submit" class="btn-auth">
+          <button type="submit" class="btn-auth">
             Ingresar
           </button>
         </form>
@@ -63,17 +48,19 @@
       <div id="registerForm" class="form-panel">
         <h2>Crear Cuenta</h2>
 
-        <form>
+        <form method="POST">
+          {% csrf_token %}
+
           <div class="form-group">
-            <input type="text" placeholder="Nombre" required>
+            <input type="text" name="nombre" placeholder="Nombre" required>
           </div>
 
           <div class="form-group">
-            <input type="email" placeholder="Correo electrónico" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
           </div>
 
           <div class="form-group">
-            <input type="password" placeholder="Contraseña" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
           </div>
 
           <button type="submit" class="btn-auth">
@@ -94,20 +81,10 @@
 
 </section>
 
-<!-- FOOTER-->
-<div id="footer"></div>
+{% endblock %}
 
-<!-- HEADER Y FOOTER -->
-<script src="js/include.js"></script>
+{% block extra_js %}
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="{% static 'js/auth.js' %}"></script>
 
-
-<!-- JS del formulario de login/registro -->
-<script src="js/auth.js"></script>
-
-
-</body>
-</html>
-
+{% endblock %}

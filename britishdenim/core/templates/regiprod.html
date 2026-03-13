@@ -1,33 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Registra tu producto | British Denim</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+{% load static %}
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+{% block content %}
 
-  
-<!-- CSS  -->
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/pages/regiprod.css">
-
-</head>
-
-
-<body>
-
-  <!-- TOPBAR -->
+<!-- TOPBAR -->
 <div class="top-bar">
   <p>Autentica tu producto original British Denim</p>
 </div>
-
-<!-- HEADER -->
-<div id="header"></div>
 
 <main>
 
@@ -35,7 +14,6 @@
 <section class="regprod-hero">
   <div class="container">
     <h1>Registro de Producto</h1>
-  <!-- <p>Registra tu referencia y accede a beneficios exclusivos.</p> --> <!--no eliminar el codigo se puede reciclar-->
   </div>
 </section>
 
@@ -71,7 +49,7 @@ required
 Registrar producto
 </button>
 
-<a href="perfil.html" class="regprod-btn-secondary">
+<a href="{% url 'perfil' %}" class="regprod-btn-secondary">
 Ya tengo usuario
 </a>
 
@@ -83,30 +61,18 @@ Ya tengo usuario
 
 </div>
 
-</section>    
+</section>
+
 </main>
 
 <!-- sistema de autenticacion de producto con localStorage -->
 <div id="authResult" class="auth-result"></div>
 
-<!-- FOOTER -->
-<div id="footer"></div>
+{% endblock %}
 
-<!-- SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+{% block extra_js %}
 
-<script src="js/menu.js"></script>
-<script src="js/topbar-loop.js" defer></script>
-<!-- JS del top bar -->
-<script src="js/top-bar-parallax.js"></script>
+<script src="{% static 'js/product-database.js' %}"></script>
+<script src="{% static 'js/regprod.js' %}"></script>
 
-<!-- HEADER Y FOOTER -->
-<script src="js/include.js"></script>
-
-<!-- LLAMADO DE SCRIPTS EN JS base de datos de productos -->
-<script src="js/product-database.js"></script>
-<script src="js/regprod.js"></script>
-
-</body>
-</html>
+{% endblock %}

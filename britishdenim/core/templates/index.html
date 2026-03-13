@@ -1,34 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>British Denim</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- CSS  -->
+{% extends "base.html" %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-<link rel="stylesheet" href="css/pages/index.css">
+{% block content %}
 
-</head>
-
-<body>
-
-  <!-- PAGE LOADER -->
+<!-- PAGE LOADER -->
 <div id="page-loader">
   <div class="loader-content">
-    <img src="img/logo2.png" alt="British Denim" class="loader-logo">
+    <img src="{% static 'img/logo2.png' %}" alt="British Denim" class="loader-logo">
     <div class="loader-line"></div>
   </div>
 </div>
-
 
 <!-- TOPBAR -->
 <div class="top-bar">
@@ -38,9 +19,6 @@
     <span><i class="bi bi-envelope"></i> info@epcotsa.com</span>
   </div>
 </div>
-
-<!-- HEADER -->
-<div id="header"></div>
 
 <!-- HERO -->
 <section class="hero-landing">
@@ -64,13 +42,13 @@ Descubre prendas exclusivas con estilo europeo
         Cada colección está pensada para combinar elegancia, modernidad y calidad
         en cada detalle.
       </p>
-
     </div>
 
     <div class="intro-image reveal reveal-right">
-      <img src="img/img17.jpeg" alt="Colección">
+      <img src="{% static 'img/img17.jpeg' %}" alt="Colección">
     </div>
-   </div>
+
+  </div>
   </div>
 </section>
 
@@ -82,30 +60,31 @@ Descubre prendas exclusivas con estilo europeo
   <div class="collection-grid reveal">
 
     <div class="collection-item reveal reveal-delay-1">
-      <img src="img/img1.jpeg" alt="">
+      <img src="{% static 'img/img1.jpeg' %}">
     </div>
 
     <div class="collection-item reveal reveal-delay-2">
-      <img src="img/img3.jpeg" alt="">
+      <img src="{% static 'img/img3.jpeg' %}">
     </div>
 
     <div class="collection-item reveal reveal-delay-3">
-      <img src="img/img10.jpeg" alt="">
+      <img src="{% static 'img/img10.jpeg' %}">
     </div>
 
     <div class="collection-item reveal reveal-delay-4">
-      <img src="img/img15.png" alt="">
+      <img src="{% static 'img/img15.png' %}">
     </div>
 
     <div class="collection-item reveal reveal-delay-5">
-      <img src="img/img14.png" alt="">
+      <img src="{% static 'img/img14.png' %}">
     </div>
 
     <div class="collection-item reveal reveal-delay-6">
-      <img src="img/img13.jpeg" alt="">
+      <img src="{% static 'img/img13.jpeg' %}">
     </div>
 
   </div>
+
 </section>
 
 <!-- MENSAJE DE MARCA -->
@@ -116,12 +95,11 @@ Descubre prendas exclusivas con estilo europeo
 
       <!-- Imagen izquierda -->
       <div class="col-lg-6 mb-4 mb-lg-0 reveal">
-      <img src="img/img12.jpeg" 
+      <img src="{% static 'img/img12.jpeg' %}" 
         alt="Clientes British Denim"
       class="img-fluid brand-img">
 </div>
 
-<!-- Texto derecha -->
 <div class="col-lg-6">
 
   <h2 class="section-title reveal">
@@ -150,9 +128,7 @@ Descubre prendas exclusivas con estilo europeo
 
   <p class="reveal reveal-delay-3">
     Nuestras prendas están confeccionadas con los mejores materiales, cuidadosamente seleccionados 
-    para garantizar un ajuste perfecto y una comodidad incomparable. Cada puntada es una muestra 
-    del cuidado y la dedicación que ponemos en cada prenda, brindándote una calidad duradera que 
-    resistirá el paso del tiempo.
+    para garantizar un ajuste perfecto y una comodidad incomparable.
   </p>
 
   <br>
@@ -165,41 +141,15 @@ Descubre prendas exclusivas con estilo europeo
 
   <br>
 
-  <a href="contactenos.html" class="btn btn-primary btn-lg reveal reveal-delay-2">
+  <a href="{% url 'contacto' %}" class="btn btn-primary btn-lg reveal reveal-delay-2">
     Contáctenos
   </a>
 
 </div>
 
-</div> <!-- cierre col-lg-6 -->
+</div>
 
-</div> <!-- cierre row -->
+</div>
+</section>
 
-</div> <!-- cierre container -->
-</section> <!-- cierre section-brand -->
-
-<!-- FOOTER-->
-<div id="footer"></div>
-
-<!-- HEADER Y FOOTER -->
-<script src="js/include.js"></script>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-
-<!-- HEADER -->
-<script src="js/header.js" defer></script>
-
-<!-- LLAMA JS -->
-<script src="js/menu.js"></script>
-
-<!-- TOPBAR -->
-<script src="js/topbar-loop.js" defer></script>
-<script src="js/topbar-loop.js" defer></script>
-<script src="js/scroll-animations.js" defer></script>
-
-<script src="js/loader.js" defer></script>
-
-</body>
-</html>
+{% endblock %}
