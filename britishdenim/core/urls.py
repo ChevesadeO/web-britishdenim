@@ -5,12 +5,12 @@ urlpatterns = [
 
 path("", views.index, name="index"),
 
-path("perfil/", views.perfil, name="perfil"),
-
-path("dashboard/", views.dashboard, name="dashboard"),
-
 path("registro-producto/", views.regiprod, name="regiprod"),
 
 path("contacto/", views.contacto, name="contacto"),
+
+path("perfil/", views.perfil, name="perfil"),
+
+path("dashboard/", views.dashboard, name="dashboard"),
 
 ]
