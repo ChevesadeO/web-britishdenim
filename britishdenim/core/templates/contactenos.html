@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/contact.css' %}">
+{% endblock %}
+
 {% block content %}
 
 <!-- TOPBAR -->
@@ -8,109 +12,96 @@
   <p>Autentica tu producto original British Denim</p>
 </div>
 
-<!-- LOADER -->
-<div id="dashboardLoader" class="dashboard-loader">
-<div class="spinner-border text-primary"></div>
-</div>
+<!-- SECCION CONTACTO -->
+<section class="contact-modern">
+  <div class="contact-bg"></div>
 
-<!-- PERFIL -->
-<section class="profile-wrapper">
+  <div class="container">
+    <div class="contact-card fade-up">
 
-<div class="profile-card">
+      <div class="row g-5">
 
-<div class="profile-header">
+        <!-- INFO -->
+        <div class="col-lg-5 fade-up fade-up-delay-1">
+          <div class="contact-info">
+            <h4>Contáctenos</h4>
 
-<div class="profile-avatar">
+            <p>
+              Estamos listos para conversar y crear nuevas oportunidades.
+            </p>
 
-<label for="avatarUpload" class="avatar-icon male" id="avatarPreview">
-<i class="fa-solid fa-user"></i>
-</label>
+            <div class="contact-item">
+              <strong>Teléfono</strong><br>
+              +507 433-9200
+            </div>
 
-<input type="file" id="avatarUpload" accept="image/*" hidden>
+            <div class="contact-item">
+              <strong>Correo</strong><br>
+              info@epcotsa.com
+            </div>
 
-</div>
+            <div class="contact-item">
+              <strong>Ubicación</strong><br>
+              Zona Libre de Colón, Panamá
+            </div>
+          </div>
+        </div>
 
-<div class="profile-info">
+        <!-- FORM -->
+        <div class="col-lg-7 fade-up fade-up-delay-2">
 
-<h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+          <form class="contact-form-modern">
 
-<p class="country">🇵🇦 Panamá</p>
+            <input type="text" name="nombre" class="form-control mb-3" placeholder="Nombre" required>
 
-<div class="product-counter">
-<span>{{ productos|length }}</span> productos registrados
-</div>
+            <input type="email" class="form-control mb-3" placeholder="Correo electrónico" required>
 
-</div>
+            <textarea class="form-control mb-4" rows="5" placeholder="Mensaje" required></textarea>
 
-<div class="profile-actions">
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" id="terms" required>
+              <label class="form-check-label" for="terms">
+                Acepto los <a href="#" target="_blank">Términos y Condiciones</a>
+              </label>
+            </div>
 
-<button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editProfileModal">
-Editar Perfil
-</button>
+            <button type="submit" class="btn btn-dark w-50">
+              Enviar mensaje
+            </button>
 
-<a href="{% url 'logout' %}" class="btn-logout">
-<i class="fa-solid fa-right-from-bracket"></i>
-Cerrar Sesión
-</a>
+          </form>
 
-</div>
+        </div>
 
-</div>
+      </div>
 
-<!-- REFERENCIAS -->
-
-<div class="profile-references">
-
-<h3>Referencias Registradas</h3>
-
-<div id="referencesContainer">
-
-{% for producto in productos %}
-
-<div class="reference-card">
-
-<div class="ref-header">
-<strong>{{ producto.referencia }}</strong>
-<span class="ref-date">{{ producto.fecha }}</span>
-</div>
-
-<p>{{ producto.descripcion }}</p>
-
-</div>
-
-{% endfor %}
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
-<!-- TOAST -->
-
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-
-<div id="productToast" class="toast">
-
-<div class="toast-body">
-Producto registrado correctamente
-</div>
-
-</div>
-
-</div>
+<!-- MAPA -->
+<section class="contact-map fade-up fade-up-delay-3">
+  <div class="container">
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4664.676775189916!2d-79.89849642427171!3d9.352525590722273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fab6da1c5d75185%3A0x92df6a20245d0cbe!2sEpcot!5e1!3m2!1ses-419!2spa!4v1769017918981!5m2!1ses-419!2spa"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
 
 {% block extra_js %}
 
-<script src="{% static 'js/scroll-reveal.js' %}"></script>
-<script src="{% static 'js/topbar-loop.js' %}"></script>
 <script src="{% static 'js/menu.js' %}"></script>
-<script src="{% static 'js/signup.js' %}"></script>
-<script src="{% static 'js/dashboard.js' %}"></script>
-<script src="{% static 'js/auth.js' %}"></script>
+<script src="{% static 'js/scroll-reveal.js' %}"></script>
+<script src="{% static 'js/map-parallax.js' %}"></script>
+<script src="{% static 'js/topbar-loop.js' %}"></script>
+<script src="{% static 'js/top-bar-parallax.js' %}"></script>
 
 {% endblock %}

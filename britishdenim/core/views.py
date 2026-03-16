@@ -15,6 +15,6 @@ def contacto(request):
 def perfil(request):
     return render(request, 'perfil.html')
 
-s
+
 def dashboard(request):
     return render(request, 'dashboard.html')
