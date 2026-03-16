@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/pages/base.css' %}">
 <link rel="stylesheet" href="{% static 'css/pages/perfil.css' %}">
@@ -8,12 +9,10 @@
 
 {% block content %}
 
-<!-- TOP BAR -->
 <div class="top-bar">
   <p>Autentica tu producto original British Denim</p>
 </div>
 
-<!-- LOGIN / REGISTER -->
 <section class="auth-wrapper">
 
   <!-- LADO IZQUIERDO -->
@@ -27,7 +26,7 @@
         <h2>Iniciar Sesión</h2>
 
         {% if error %}
-          <p style="color:red">{{ error }}</p>
+        <p style="color:red">{{ error }}</p>
         {% endif %}
 
         <form method="POST">
@@ -45,7 +44,6 @@
             Ingresar
           </button>
 
-
         </form>
 
         <p class="auth-switch">
@@ -54,6 +52,7 @@
         </p>
 
       </div>
+
 
       <!-- REGISTRO -->
       <div id="registerForm" class="form-panel">
@@ -92,18 +91,16 @@
 
   </div>
 
-
-<!-- LADO DERECHO (IMAGEN) -->
-<div class="auth-right"
-  style="background-image:url('{% static 'img/img19.jpeg' %}')">
-</div>
+  <!-- LADO DERECHO -->
+  <div class="auth-right"
+    style="background-image:url('{% static 'img/img19.jpeg' %}')">
+  </div>
 
 </section>
 
 {% endblock %}
 
 {% block extra_js %}
-
 <script src="{% static 'js/auth.js' %}"></script>
 
 {% endblock %}

@@ -8,31 +8,35 @@
   <p>Autentica tu producto original British Denim</p>
 </div>
 
+
 <!-- LOADER -->
 <div id="dashboardLoader" class="dashboard-loader">
 <div class="spinner-border text-primary"></div>
 </div>
+
 
 <!-- PERFIL -->
 <section class="profile-wrapper">
 
 <div class="profile-card">
 
+<!-- HEADER PERFIL -->
 <div class="profile-header">
 
 <div class="profile-avatar">
-
 <label for="avatarUpload" class="avatar-icon male" id="avatarPreview">
 <i class="fa-solid fa-user"></i>
 </label>
 
 <input type="file" id="avatarUpload" accept="image/*" hidden>
-
 </div>
+
 
 <div class="profile-info">
 
-<h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+<h2>
+{{ request.user.first_name }} {{ request.user.last_name }}
+</h2>
 
 <p class="country">🇵🇦 Panamá</p>
 
@@ -42,9 +46,12 @@
 
 </div>
 
+
 <div class="profile-actions">
 
-<button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+<button class="btn-edit"
+data-bs-toggle="modal"
+data-bs-target="#editProfileModal">
 Editar Perfil
 </button>
 
@@ -57,8 +64,8 @@ Cerrar Sesión
 
 </div>
 
-<!-- REFERENCIAS -->
 
+<!-- REFERENCIAS -->
 <div class="profile-references">
 
 <h3>Referencias Registradas</h3>
@@ -88,8 +95,9 @@ Cerrar Sesión
 
 </section>
 
-<!-- TOAST -->
 
+
+<!-- TOAST -->
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
 
 <div id="productToast" class="toast">
@@ -102,15 +110,162 @@ Producto registrado correctamente
 
 </div>
 
+
+
+<!-- MODAL EDITAR PERFIL -->
+<div class="modal fade" id="editProfileModal" tabindex="-1">
+
+<div class="modal-dialog modal-lg modal-dialog-centered">
+
+<div class="modal-content">
+
+<form method="POST">
+
+{% csrf_token %}
+
+<div class="modal-header">
+<h5 class="modal-title">Editar Perfil</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+
+<div class="modal-body">
+
+<div class="row g-3">
+
+<div class="col-md-6">
+<label class="form-label">Usuario (Email)</label>
+<input type="email"
+class="form-control"
+name="username"
+value="{{ request.user.username }}">
+</div>
+
+
+<div class="col-md-6">
+<label class="form-label">Email</label>
+<input type="email"
+class="form-control"
+name="email"
+value="{{ request.user.email }}">
+</div>
+
+
+<div class="col-md-6">
+<label class="form-label">Nombre</label>
+<input type="text"
+class="form-control"
+name="first_name"
+value="{{ request.user.first_name }}">
+</div>
+
+
+<div class="col-md-6">
+<label class="form-label">Apellido</label>
+<input type="text"
+class="form-control"
+name="last_name"
+value="{{ request.user.last_name }}">
+</div>
+
+
+<div class="col-md-6">
+<label class="form-label">Móvil</label>
+<input type="tel"
+class="form-control"
+name="mobile">
+</div>
+
+
+<div class="col-md-6">
+<label class="form-label">País</label>
+
+<select class="form-select" name="country">
+
+<option>Colombia</option>
+<option>Costa Rica</option>
+<option>Rep. Dominicana</option>
+<option>Guatemala</option>
+<option>Honduras</option>
+<option>Jamaica</option>
+<option>Nicaragua</option>
+<option>Panamá</option>
+<option>El Salvador</option>
+<option>Estados Unidos</option>
+<option>Uruguay</option>
+<option>Venezuela</option>
+
+</select>
+
+</div>
+
+
+<div class="col-12">
+<label class="form-label">Dirección</label>
+<input type="text" class="form-control" name="address">
+</div>
+
+
+<div class="col-md-4">
+<label class="form-label">Facebook</label>
+<input type="url" class="form-control" name="facebook">
+</div>
+
+
+<div class="col-md-4">
+<label class="form-label">Instagram</label>
+<input type="url" class="form-control" name="instagram">
+</div>
+
+
+<div class="col-md-4">
+<label class="form-label">X (Twitter)</label>
+<input type="url" class="form-control" name="twitter">
+</div>
+
+
+<hr>
+
+
+<div class="col-md-6">
+<label class="form-label">Nueva Contraseña</label>
+<input type="password" class="form-control" name="password">
+</div>
+
+
+<div class="col-md-6">
+<label class="form-label">Confirmar Contraseña</label>
+<input type="password" class="form-control" name="confirm_password">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="modal-footer">
+<button type="submit" class="btn btn-primary">
+Guardar Cambios
+</button>
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
 {% endblock %}
+
+
 
 {% block extra_js %}
 
 <script src="{% static 'js/scroll-reveal.js' %}"></script>
 <script src="{% static 'js/topbar-loop.js' %}"></script>
 <script src="{% static 'js/menu.js' %}"></script>
-<script src="{% static 'js/signup.js' %}"></script>
 <script src="{% static 'js/dashboard.js' %}"></script>
-<script src="{% static 'js/auth.js' %}"></script>
 
 {% endblock %}

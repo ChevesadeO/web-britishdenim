@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 
 def index(request):
@@ -26,6 +27,7 @@ def perfil(request):
 
         # REGISTRO
         if nombre:
+
             if User.objects.filter(username=email).exists():
                 return render(request, "perfil.html", {
                     "error": "El usuario ya existe"
@@ -57,4 +59,24 @@ def perfil(request):
 
 @login_required
 def dashboard(request):
+
+    # EDITAR PERFIL
+    if request.method == "POST":
+
+        user = request.user
+
+        user.first_name = request.POST.get("first_name")
+        user.last_name = request.POST.get("last_name")
+        user.email = request.POST.get("email")
+
+        user.save()
+
+        return redirect("dashboard")
+
     return render(request, "dashboard.html")
+
+
+# CERRAR SESIÓN
+def logout_view(request):
+    logout(request)
+    return redirect("index")
