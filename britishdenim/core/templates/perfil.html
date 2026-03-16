@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/pages/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/perfil.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -12,14 +13,17 @@
   <p>Autentica tu producto original British Denim</p>
 </div>
 
-<!-- SIGN IN / SIGN UP FORM -->
+<!-- LOGIN / REGISTER -->
 <section class="auth-wrapper">
 
+  <!-- LADO IZQUIERDO -->
   <div class="auth-left">
+
     <div class="auth-box">
 
       <!-- LOGIN -->
       <div id="loginForm" class="form-panel active">
+
         <h2>Iniciar Sesión</h2>
 
         <form method="POST">
@@ -36,16 +40,19 @@
           <button type="submit" class="btn-auth">
             Ingresar
           </button>
+
         </form>
 
         <p class="auth-switch">
           ¿No tienes cuenta?
           <a href="#" id="showRegister">Regístrate</a>
         </p>
+
       </div>
 
       <!-- REGISTRO -->
       <div id="registerForm" class="form-panel">
+
         <h2>Crear Cuenta</h2>
 
         <form method="POST">
@@ -66,18 +73,25 @@
           <button type="submit" class="btn-auth">
             Registrarse
           </button>
+
         </form>
 
         <p class="auth-switch">
           ¿Ya tienes cuenta?
           <a href="#" id="showLogin">Inicia sesión</a>
         </p>
+
       </div>
 
     </div>
+
   </div>
 
-  <div class="auth-right"></div>
+
+<!-- LADO DERECHO (IMAGEN) -->
+<div class="auth-right"
+     style="background-image:url('{% static 'img/img19.jpeg' %}')">
+</div>
 
 </section>
 

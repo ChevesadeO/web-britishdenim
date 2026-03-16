@@ -70,7 +70,7 @@ box-shadow:0 8px 20px rgba(0,0,0,.15);
 /* CONTENEDOR PRINCIPAL */
 .auth-wrapper {
 display: flex;
-min-height: 100vh; /* resta altura aproximada del header */
+min-height:calc(100vh - 80px); /* resta altura aproximada del header */
 }
 
 /* LADO IZQUIERDO */
@@ -86,12 +86,8 @@ min-height: 100vh; /* resta altura aproximada del header */
   /* LADO DERECHO */
 .auth-right{
 flex:1;
-background:
-linear-gradient(
-rgba(0,0,0,0.25),
-rgba(0,0,0,0.25)
-),
-url("/img/img19.jpeg") center center / cover no-repeat;
+background-size: cover;
+background-position: center;
 position:relative;
 }
 
