@@ -12,7 +12,6 @@ avatar.classList.add(generoUsuario);
 
 
 // VALIDACION FORMULARIO PERFIL
-
 document.addEventListener("DOMContentLoaded", () => {
 
 const form = document.getElementById("editProfileForm");
@@ -39,7 +38,6 @@ alert("Las contraseñas no coinciden");
 
 
 // AVATAR PERSISTENTE
-
 const avatarUpload = document.getElementById("avatarUpload");
 const avatarPreview = document.getElementById("avatarPreview");
 
@@ -84,11 +82,10 @@ reader.readAsDataURL(file);
 }
 
 // DATOS DE USUARIO
-
 const userData = {
 
-name:"Juan Pérez",
-country:"Panamá"
+name:"#",
+country:"#"
 
 };
 
@@ -105,7 +102,6 @@ loadUserProfile();
 
 
 // CONTADOR PRODUCTOS
-
 function updateProductCounter(){
 
 const refs = JSON.parse(localStorage.getItem("bd_products")) || [];
@@ -119,7 +115,6 @@ updateProductCounter();
 
 
 // REFERENCIAS REGISTRADAS
-
 function loadReferences(){
 
 const container = document.getElementById("referencesContainer");
@@ -157,7 +152,6 @@ loadReferences();
 
 
 // LOADER DASHBOARD
-
 window.addEventListener("load", () => {
 
 const loader = document.getElementById("dashboardLoader");
