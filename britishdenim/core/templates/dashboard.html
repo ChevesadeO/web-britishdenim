@@ -119,7 +119,7 @@ Producto registrado correctamente
 
 <div class="modal-content">
 
-<form method="POST">
+<form method="POST" id="editProfileForm">
 
 {% csrf_token %}
 
@@ -215,12 +215,6 @@ name="mobile">
 <div class="col-md-4">
 <label class="form-label">Instagram</label>
 <input type="url" class="form-control" name="instagram">
-</div>
-
-
-<div class="col-md-4">
-<label class="form-label">X (Twitter)</label>
-<input type="url" class="form-control" name="twitter">
 </div>
 
 

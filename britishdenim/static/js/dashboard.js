@@ -81,25 +81,6 @@ reader.readAsDataURL(file);
 
 }
 
-// DATOS DE USUARIO
-const userData = {
-
-name:"#",
-country:"#"
-
-};
-
-function loadUserProfile(){
-
-document.querySelector(".profile-info h2").textContent = userData.name;
-
-document.querySelector(".country").textContent =
-"🇵🇦 " + userData.country;
-
-}
-
-loadUserProfile();
-
 
 // CONTADOR PRODUCTOS
 function updateProductCounter(){
