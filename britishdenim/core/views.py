@@ -58,25 +58,6 @@ def perfil(request):
     return render(request, "perfil.html")
 
 
-@login_required
-def dashboard(request):
-
-    # EDITAR PERFIL
-    if request.method == "POST":
-
-        user = request.user
-
-        user.username = request.POST.get("email")
-        user.email = request.POST.get("email")
-        user.first_name = request.POST.get("first_name")
-        user.last_name = request.POST.get("last_name")
-
-        user.save()
-
-        return redirect("dashboard")
-
-    return render(request, "dashboard.html")
-
 
 # CERRAR SESIÓN
 def logout_view(request):
