@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from .models import Profile 
 
 
 def index(request):
@@ -81,3 +82,30 @@ def dashboard(request):
 def logout_view(request):
     logout(request)
     return redirect("index")
+
+
+
+# PERFIL COMPLETO (USUARIO + PERFIL)
+@login_required
+def dashboard(request):
+
+    if request.method == "POST":
+
+        user = request.user
+
+        user.first_name = request.POST.get("first_name")
+        user.last_name = request.POST.get("last_name")
+        user.email = request.POST.get("email")
+        user.username = request.POST.get("email")
+
+        user.save()
+
+        # PERFIL
+        profile = user.profile
+        profile.country = request.POST.get("country")
+        profile.save()
+
+        return redirect("dashboard")
+
+    return render(request, "dashboard.html")
+

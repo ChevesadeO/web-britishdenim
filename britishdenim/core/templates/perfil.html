@@ -29,18 +29,13 @@
         <p style="color:red">{{ error }}</p>
         {% endif %}
 
-        <form method="POST">
+        <form method="POST" action="{% url 'perfil' %}">
           {% csrf_token %}
 
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Correo electrónico" required>
-          </div>
+          <input type="email" name="email" required>
+          <input type="password" name="password" required>
 
-          <div class="form-group">
-            <input type="password" name="password" placeholder="Contraseña" required>
-          </div>
-
-          <button type="submit" class="btn-auth">
+          <button type="submit">Ingresar</button>
             Ingresar
           </button>
 
@@ -59,24 +54,14 @@
 
         <h2>Crear Cuenta</h2>
 
-        <form method="POST">
+        <form method="POST" action="{% url 'perfil' %}">
           {% csrf_token %}
 
-          <div class="form-group">
-            <input type="text" name="nombre" placeholder="Nombre" required>
-          </div>
+          <input type="text" name="nombre" required>
+          <input type="email" name="email" required>
+          <input type="password" name="password" required>
 
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Correo electrónico" required>
-          </div>
-
-          <div class="form-group">
-            <input type="password" name="password" placeholder="Contraseña" required>
-          </div>
-
-          <button type="submit" class="btn-auth">
-            Registrarse
-          </button>
+        <button type="submit">Registrarse</button>
 
         </form>
 
@@ -91,10 +76,9 @@
 
   </div>
 
-  <!-- LADO DERECHO -->
-  <div class="auth-right"
-    style="background-image:url('{% static 'img/img19.jpeg' %}')">
-  </div>
+<!-- LADO DERECHO -->
+<div class="auth-right" style="background-image: url('{% static "img/img19.jpeg" %}')">
+</div>
 
 </section>
 

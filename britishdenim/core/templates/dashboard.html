@@ -38,7 +38,13 @@
 {{ request.user.first_name }} {{ request.user.last_name }}
 </h2>
 
-<p class="country">🇵🇦 Panamá</p>
+<p class="country">
+  {% if request.user.profile.country %}
+    🌎 {{ request.user.profile.country }}
+  {% else %}
+    🌎 Sin país
+  {% endif %}
+</p>
 
 <div class="product-counter">
 <span>{{ productos|length }}</span> productos registrados
@@ -182,18 +188,18 @@ name="mobile">
 
 <select class="form-select" name="country">
 
-<option>Colombia</option>
-<option>Costa Rica</option>
-<option>Rep. Dominicana</option>
-<option>Guatemala</option>
-<option>Honduras</option>
-<option>Jamaica</option>
-<option>Nicaragua</option>
-<option>Panamá</option>
-<option>El Salvador</option>
-<option>Estados Unidos</option>
-<option>Uruguay</option>
-<option>Venezuela</option>
+<option value="Panamá" {% if request.user.profile.country == "Panamá" %}selected{% endif %}>Panamá</option>
+<option value="Colombia" {% if request.user.profile.country == "Colombia" %}selected{% endif %}>Colombia</option>
+<option value="Costa Rica" {% if request.user.profile.country == "Costa Rica" %}selected{% endif %}>Costa Rica</option>
+<option value="Estados Unidos" {% if request.user.profile.country == "Estados Unidos" %}selected{% endif %}>Estados Unidos</option>
+<option value="Rep. Dominicana" {% if request.user.profile.country == "Rep. Dominicana" %}selected{% endif %}>Rep. Dominicana</option>
+<option value="Guatemala" {% if request.user.profile.country == "Guatemala" %}selected{% endif %}>Guatemala</option>
+<option value="Honduras" {% if request.user.profile.country == "Honduras" %}selected{% endif %}>Honduras</option>
+<option value="Jamaica" {% if request.user.profile.country == "Jamaica" %}selected{% endif %}>Jamaica</option>
+<option value="Nicaragua" {% if request.user.profile.country == "Nicaragua" %}selected{% endif %}>Nicaragua</option>
+<option value="El Salvador" {% if request.user.profile.country == "El Salvador" %}selected{% endif %}>El Salvador</option>
+<option value="Uruguay" {% if request.user.profile.country == "Uruguay" %}selected{% endif %}>Uruguay</option>
+<option value="Venezuela" {% if request.user.profile.country == "Venezuela" %}selected{% endif %}>Venezuela</option>
 
 </select>
 
