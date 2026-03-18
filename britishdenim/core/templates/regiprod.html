@@ -3,10 +3,24 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/pages/index.css' %}">
+<style>
+    /* Estilos del Top Bar que eliminamos */
+    .top-bar { background: #0e4383; color: white; padding: 10px 0; overflow: hidden; }
+    .topbar-track { display: flex; white-space: nowrap; gap: 50px; }
+
+    #reader {
+        width: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+        border: none !important;
+        display: none; 
+        margin-bottom: 20px;
+    }
+    #reader video { border-radius: 15px; }
+</style>
 {% endblock %}
 
 {% block content %}
-
 <div class="top-bar">
   <div class="topbar-track" id="topbarTrack">
     <span><i class="bi bi-award"></i> LONG LASTING & FASHION</span>
@@ -18,42 +32,37 @@
 <main>
   <section class="regprod-modern">
     <div class="regprod-bg"></div>
-
     <div class="container">
-      <div class="text-center text-white mb-5 fade-up">
-        <h1 style="font-size: 42px; font-weight: 600; letter-spacing: 5px; margin: 0;">Registro de Producto</h1>
+      <div class="text-center text-white mb-4 fade-up pt-4">
+        <h1 class="regprod-main-title">Registro de Producto</h1>
       </div>
 
-      <div class="regprod-card fade-up fade-up-delay-1">
-        <div class="regprod-form">
-          <h3 class="regprod-title">Registra algún producto con su referencia.</h3>
-          <p class="regprod-subtitle">
-            Podrás aprovechar futuras promociones.
-          </p>
+      <div class="regprod-card fade-up">
+        <div class="regprod-form text-center">
+          <h3 class="regprod-title">Registra tu referencia</h3>
+          <p class="regprod-subtitle">Escanea el código QR o ingresa la referencia manualmente.</p>
+
+          <div id="reader"></div>
+
+          <div class="mb-3">
+            <button id="btnQR" type="button" class="btn w-100 mb-3" style="background: #e1e1e1; color: #0e4383; border-radius: 12px; font-weight: 600;">
+              <i class="bi bi-qr-code-scan"></i> Escanear Código QR
+            </button>
+          </div>
 
           <div class="text-start mb-2">
-            <label class="form-label fw-bold" style="color:#0e4383;">Referencia</label>
+            <label class="form-label fw-bold" style="color:#0e4383;">Referencia Manual</label>
           </div>
           
-          <input 
-            type="text" 
-            id="refInput" 
-            class="form-control" 
-            placeholder="Ej. RE-12345" 
-            required
-          >
+          <input type="text" id="refInput" class="form-control mb-4" placeholder="Ej. RE-12345">
 
-          <div class="regprod-actions mt-4">
+          <div class="regprod-actions">
             <button type="button" onclick="abrirModalRegistro()" class="regprod-btn-primary">
               Regístrate primero
             </button>
-            <a href="{% url 'perfil' %}" class="regprod-btn-secondary">
-              Ya tengo usuario
-            </a>
+            <a href="{% url 'perfil' %}" class="regprod-btn-secondary">Ya tengo usuario</a>
           </div>
         </div>
-
-        <div id="authResult" class="auth-result"></div>
       </div>
     </div>
   </section>
@@ -61,64 +70,61 @@
 
 <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 25px; border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 25px 50px rgba(0,0,0,0.2);">
-      
-      <div class="modal-header border-0">
-        <h5 class="modal-title fw-bold" style="color: #0e4383; font-size: 24px;">Crear Cuenta</h5>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar Referencia</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-
-      <form method="POST" action="{% url 'perfil' %}">
-        {% csrf_token %}
-        <div class="modal-body p-4">
-          <p class="text-muted mb-4">Estás a un paso de registrar tu producto: <strong id="displayRef" style="color: #0e4383;"></strong></p>
-          
-          <input type="hidden" name="referencia_venta" id="hiddenRef">
-
-          <div class="mb-3">
-            <input type="text" name="nombre" class="form-control shadow-sm" placeholder="Nombre completo" required style="border-radius: 10px; padding: 12px;">
-          </div>
-          <div class="mb-3">
-            <input type="email" name="email" class="form-control shadow-sm" placeholder="Correo electrónico" required style="border-radius: 10px; padding: 12px;">
-          </div>
-          <div class="mb-4">
-            <input type="password" name="password" class="form-control shadow-sm" placeholder="Contraseña segura" required style="border-radius: 10px; padding: 12px;">
-          </div>
-          
-          <button type="submit" class="btn btn-primary w-100 py-3 fw-bold" style="background: #0e4383; border: none; border-radius: 12px; transition: 0.3s;">
-            Finalizar Registro
-          </button>
-        </div>
-      </form>
-      
+      <div class="modal-body text-center">
+        <p>Referencia detectada:</p>
+        <h3 id="displayRef" class="text-primary"></h3>
+        <input type="hidden" id="hiddenRef">
+        <button type="button" class="btn btn-primary w-100 mt-3" onclick="location.href='/tu-url-de-registro/'">
+            Confirmar y Registrarse
+        </button>
+      </div>
     </div>
   </div>
 </div>
-
 {% endblock %}
 
 {% block extra_js %}
+<script src="https://unpkg.com/html5-qrcode"></script>
 <script>
-  function abrirModalRegistro() {
-    const refValue = document.getElementById("refInput").value.trim();
-    
-    if (refValue === "") {
-        alert("Por favor, ingresa una referencia antes de continuar.");
-        return;
+    const html5QrCode = new Html5Qrcode("reader");
+    const btnQR = document.getElementById('btnQR');
+    const readerDiv = document.getElementById('reader');
+
+    btnQR.addEventListener('click', () => {
+        readerDiv.style.display = 'block';
+        const qrConfig = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+        html5QrCode.start(
+            { facingMode: "environment" },
+            qrConfig,
+            (decodedText) => {
+                document.getElementById('refInput').value = decodedText;
+                html5QrCode.stop();
+                readerDiv.style.display = 'none';
+                abrirModalRegistro();
+            },
+            (errorMessage) => { }
+        ).catch((err) => {
+            alert("Error al iniciar cámara.");
+        });
+    });
+
+    function abrirModalRegistro() {
+        const refValue = document.getElementById("refInput").value.trim();
+        if (refValue === "") {
+            alert("Ingresa o escanea una referencia.");
+            return;
+        }
+        document.getElementById("displayRef").innerText = refValue;
+        document.getElementById("hiddenRef").value = refValue;
+        var myModal = new bootstrap.Modal(document.getElementById('registerModal'));
+        myModal.show();
     }
-
-    // Colocar el texto en el modal para que el usuario lo vea
-    document.getElementById("displayRef").innerText = refValue;
-    // Poner el valor en el input oculto que se enviará a Django
-    document.getElementById("hiddenRef").value = refValue;
-
-    // Inicializar y mostrar el modal de Bootstrap
-    var myModal = new bootstrap.Modal(document.getElementById('registerModal'));
-    myModal.show();
-  }
 </script>
-
-<script src="{% static 'js/product-database.js' %}"></script>
-<script src="{% static 'js/regprod.js' %}"></script>
 <script src="{% static 'js/topbar-loop.js' %}"></script>
 {% endblock %}

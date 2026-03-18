@@ -166,3 +166,37 @@ main {
     max-width: 100%;
   }
 }
+
+/* AJUSTES PARA MÓVILES (Responsive) */
+@media (max-width: 768px) {
+    .regprod-modern {
+        padding-top: 180px; /* Reducimos espacio superior en móvil */
+        padding-bottom: 80px;
+    }
+
+    .regprod-main-title {
+        font-size: 28px !important; /* Título más pequeño */
+        letter-spacing: 2px !important;
+    }
+
+    .regprod-card {
+        padding: 30px 20px; /* Menos padding lateral */
+        margin: 0 15px; /* Margen para que no toque los bordes del cel */
+    }
+
+    .regprod-actions {
+        flex-direction: column; /* Botones uno arriba del otro */
+        gap: 10px;
+    }
+
+    .regprod-btn-primary, .regprod-btn-secondary {
+        max-width: 100%; /* Botones de ancho completo */
+        width: 100%;
+    }
+}
+
+/* Efecto suave para el lector QR */
+#reader__scan_region {
+    background: white;
+}
+
