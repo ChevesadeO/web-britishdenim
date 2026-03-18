@@ -29,7 +29,7 @@
         <p style="color:red">{{ error }}</p>
         {% endif %}
 
-        <form method="POST" action="{% url 'perfil' %}">
+        <form method="POST">
           {% csrf_token %}
 
 
@@ -60,7 +60,7 @@
 
         <h2>Crear Cuenta</h2>
 
-        <form method="POST" action="{% url 'perfil' %}">
+        <form method="POST">
           {% csrf_token %}
 
         <div class="form-group">
@@ -93,7 +93,8 @@
   </div>
 
 <!-- LADO DERECHO -->
-<div class="auth-right" style="background-image: url('{% static "img/img19.jpeg" %}')">
+<div class="auth-right"
+style="background-image: url('{% static "img/img19.jpeg" %}')">
 </div>
 
 </section>
@@ -102,6 +103,6 @@
 
 {% block extra_js %}
 <script src="{% static 'js/auth.js' %}"></script>
-
+<script src="{% static 'js/topbar-loop.js'}"></script>
 
 {% endblock %}
