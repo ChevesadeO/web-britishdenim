@@ -100,3 +100,72 @@ transition:transform .3s ease, box-shadow .3s ease;
 transform:translateY(-4px);
 box-shadow:0 30px 80px rgba(0,0,0,.18);
 }
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - CONTACTO
+   ========================================================================== */
+
+/* Tablets y Laptops */
+@media (max-width: 992px) {
+    .contact-modern {
+        padding-top: 180px; /* Reducimos el espacio superior */
+        padding-bottom: 80px;
+    }
+
+    .contact-card {
+        padding: 40px; /* Reducimos el padding interno */
+        margin: 0 15px; /* Pequeño margen lateral */
+    }
+}
+
+/* Móviles (Smartphone) */
+@media (max-width: 768px) {
+    .contact-modern {
+        padding-top: 140px;
+        padding-bottom: 60px;
+    }
+
+    .contact-card {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    /* Información de contacto */
+    .contact-info {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .contact-item {
+        margin-bottom: 20px;
+    }
+
+    /* Formulario */
+    .contact-form-modern .btn {
+        width: 100% !important; /* El botón ocupa todo el ancho en móvil */
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+
+    /* Mapa */
+    .map-wrapper {
+        height: 350px; /* Mapa un poco más bajo en móvil */
+        margin: 0 10px;
+    }
+
+    .contact-map {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .contact-modern {
+        padding-top: 120px;
+    }
+    
+    .contact-info h4 {
+        font-size: 1.8rem;
+    }
+}

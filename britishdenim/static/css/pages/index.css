@@ -126,4 +126,66 @@ padding-top:120px;
 
 
 
+/* ==========================================================================
+   RESPONSIVE DESIGN - INDEX
+   ========================================================================== */
 
+/* Tablets y Laptops pequeñas */
+@media (max-width: 992px) {
+    .intro-container {
+        flex-direction: column; /* Texto arriba, imagen abajo */
+        text-align: center;
+        gap: 40px;
+    }
+
+    .collection-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en lugar de 3 */
+    }
+
+    .hero-landing {
+        min-height: 100vh; /* Reducimos la altura exagerada en tablets */
+    }
+}
+
+/* Móviles (Smartphone) */
+@media (max-width: 768px) {
+    main {
+        padding-top: 80px; /* Menos espacio superior en móvil */
+    }
+
+    .hero-landing {
+        padding-top: 60px;
+    }
+
+    .intro-section, .featured-collection, .section-brand {
+        padding: 60px 5%; /* Menos padding lateral para aprovechar el ancho */
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr; /* 1 sola columna: imágenes grandes */
+        gap: 15px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    /* Ajuste para que la imagen de la promesa no sea gigante */
+    .brand-img {
+        margin-bottom: 30px;
+        border-radius: 15px;
+    }
+
+    /* Topbar en móvil: ocultar iconos si el espacio es crítico o reducir gap */
+    .topbar-track {
+        gap: 20px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Animación de Zoom del Hero (opcional, por si no la tenías definida) */
+@keyframes zoomHero {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}

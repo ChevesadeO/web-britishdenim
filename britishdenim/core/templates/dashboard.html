@@ -3,8 +3,7 @@
 
 {% block content %}
 
-<!-- TOPBAR -->
-<div class="top-bar">
+<div class="top-bar" style="background: #0e4383;">
   <div class="topbar-track" id="topbarTrack">
     <span><i class="bi bi-award"></i> LONG LASTING & FASHION</span>
     <span><i class="bi bi-telephone"></i> +507 433-9200</span>
@@ -12,291 +11,124 @@
   </div>
 </div>
 
-
-<!-- LOADER -->
 <div id="dashboardLoader" class="dashboard-loader">
-<div class="spinner-border text-primary"></div>
+  <div class="spinner-border" style="color: #0e4383;"></div>
 </div>
 
-
-<!-- PERFIL -->
 <section class="profile-wrapper">
+  <div class="container">
+    <div class="profile-card fade-up">
+      
+      <div class="profile-header" style="border-bottom: 1px solid rgba(14, 67, 131, 0.1);">
+        <div class="d-flex align-items-center flex-wrap justify-content-center justify-content-md-start">
+          <div class="profile-avatar mb-3 mb-md-0">
+            <label for="avatarUpload" class="avatar-icon male" id="avatarPreview" style="background: linear-gradient(135deg, #0e4383, #1a5fb0);">
+              <i class="fa-solid fa-user"></i>
+            </label>
+            <input type="file" id="avatarUpload" accept="image/*" hidden>
+          </div>
 
-<div class="profile-card">
-
-<!-- HEADER PERFIL -->
-<div class="profile-header">
-
-<div class="profile-avatar">
-<label for="avatarUpload" class="avatar-icon male" id="avatarPreview">
-<i class="fa-solid fa-user"></i>
-</label>
-
-<input type="file" id="avatarUpload" accept="image/*" hidden>
-</div>
-
-
-<div class="profile-info">
-
-<h2>
-{{ request.user.first_name }} {{ request.user.last_name }}
-</h2>
-
-<p class="country">
-  {% if request.user.profile.country %}
-    🌎 {{ request.user.profile.country }}
-  {% else %}
-    🌎 Sin país
-  {% endif %}
-</p>
-
-<div class="product-counter">
-<span>{{ productos|length }}</span> productos registrados
-</div>
-
-</div>
-
-
-<div class="profile-actions">
-
-<button class="btn-edit"
-data-bs-toggle="modal"
-data-bs-target="#editProfileModal">
-Editar Perfil
-</button>
-
-<a href="{% url 'logout' %}" class="btn-logout">
-<i class="fa-solid fa-right-from-bracket"></i>
-Cerrar Sesión
-</a>
-
-</div>
-
-</div>
-
-<!-- Registro de producto -->
-<div class="profile-references">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3>Registrar referencia</h3>
-        <form method="POST" class="d-flex gap-2">
-            {% csrf_token %}
-            <input type="text" name="nueva_referencia" class="form-control form-control-sm" placeholder="Nueva Ref (Ej: RE-999)" required>
-            <button type="submit" class="btn btn-sm btn-primary">Registrar</button>
-        </form>
-    </div>
-
-    <div id="referencesContainer">
-        {% for producto in productos %}
-        <div class="reference-card">
-            <div class="ref-header">
-                <strong>{{ producto.referencia }}</strong>
-                <span class="ref-date">{{ producto.fecha|date:"d/m/Y" }}</span>
+          <div class="profile-info ms-md-4 text-center text-md-start">
+            <h2 class="mb-1" style="color: #0e4383;">{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+            <p class="country mb-2 text-muted">
+              {% if request.user.profile.country %}
+                <i class="bi bi-geo-alt-fill" style="color: #0e4383;"></i> {{ request.user.profile.country }}
+              {% else %}
+                <i class="bi bi-geo-alt"></i> Sin país asignado
+              {% endif %}
+            </p>
+            <div class="product-counter" style="color: #0e4383;">
+              <span class="badge" style="background-color: #0e4383;">{{ productos|length }}</span> Productos registrados
             </div>
-            <p>{{ producto.descripcion }}</p>
+          </div>
         </div>
-        {% empty %}
-        <p class="text-muted">No tienes productos registrados.</p>
-        {% endfor %}
+
+        <div class="profile-actions mt-4 mt-md-0 d-flex flex-column flex-sm-row gap-2">
+          <button class="btn shadow-sm text-white" data-bs-toggle="modal" data-bs-target="#editProfileModal" style="background-color: #0e4383; border: none;">
+            <i class="bi bi-pencil-square"></i> Editar Perfil
+          </button>
+          <a href="{% url 'logout' %}" class="btn btn-light shadow-sm text-decoration-none d-flex align-items-center justify-content-center border">
+            <i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar Sesión
+          </a>
+        </div>
+      </div>
+
+      <div class="profile-references mt-5">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+          <h3 class="mb-0 fw-bold" style="color: #0e4383;">Mis Referencias</h3>
+          
+          <form method="POST" class="d-flex gap-2">
+            {% csrf_token %}
+            <input type="text" name="nueva_referencia" class="form-control" placeholder="Ej: RE-999" required style="border-color: rgba(14, 67, 131, 0.2);">
+            <button type="submit" name="btn_registrar" class="btn text-white px-4" style="background-color: #0e4383;">
+                Registrar
+            </button>
+          </form>
+        </div>
+
+        <div id="referencesContainer" class="row g-3">
+          {% for producto in productos %}
+          <div class="col-12">
+            <div class="reference-card border-start border-4 shadow-sm p-3 bg-light rounded-3 transition-hover" style="border-color: #0e4383 !important;">
+              <div class="ref-header d-flex justify-content-between align-items-center mb-2">
+                <strong class="fs-5" style="color: #0e4383;">{{ producto.referencia }}</strong>
+                <span class="ref-date text-muted small">
+                  <i class="bi bi-calendar3 me-1"></i> {{ producto.fecha|date:"d/m/Y" }}
+                </span>
+              </div>
+              <p class="mb-0 text-secondary italic small">{{ producto.descripcion|default:"Sin descripción adicional." }}</p>
+            </div>
+          </div>
+          {% empty %}
+          <div class="col-12 text-center py-5 border rounded-3 bg-light bg-opacity-50">
+            <i class="bi bi-search display-4 text-muted"></i>
+            <p class="text-muted mt-3 fs-5">No tienes productos registrados aún.</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
     </div>
-</div>
-
-
-
-<!-- REFERENCIAS -->
-<div class="profile-references">
-
-<h3>Referencias Registradas</h3>
-
-<div id="referencesContainer">
-
-{% for producto in productos %}
-
-<div class="reference-card">
-
-<div class="ref-header">
-<strong>{{ producto.referencia }}</strong>
-<span class="ref-date">{{ producto.fecha }}</span>
-</div>
-
-<p>{{ producto.descripcion }}</p>
-
-</div>
-
-{% endfor %}
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg">
+      <form method="POST" id="editProfileForm">
+        {% csrf_token %}
+        <div class="modal-header text-white" style="background-color: #0e4383;">
+          <h5 class="modal-title fw-bold">Actualizar Datos Personales</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
 
+        <div class="modal-body p-4">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label fw-bold" style="color: #0e4383;">Nombre</label>
+              <input type="text" class="form-control shadow-sm" name="first_name" value="{{ request.user.first_name }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-bold" style="color: #0e4383;">Apellido</label>
+              <input type="text" class="form-control shadow-sm" name="last_name" value="{{ request.user.last_name }}">
+            </div>
+          </div>
+        </div>
 
-<!-- TOAST -->
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-
-<div id="productToast" class="toast">
-
-<div class="toast-body">
-Producto registrado correctamente
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- MODAL EDITAR PERFIL -->
-<div class="modal fade" id="editProfileModal" tabindex="-1">
-
-<div class="modal-dialog modal-lg modal-dialog-centered">
-
-<div class="modal-content">
-
-<form method="POST" id="editProfileForm">
-
-{% csrf_token %}
-
-<div class="modal-header">
-<h5 class="modal-title">Editar Perfil</h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-</div>
-
-
-<div class="modal-body">
-
-<div class="row g-3">
-
-<div class="col-md-6">
-<label class="form-label">Usuario (Email)</label>
-<input type="email"
-class="form-control"
-name="username"
-value="{{ request.user.username }}">
-</div>
-
-
-<div class="col-md-6">
-<label class="form-label">Email</label>
-<input type="email"
-class="form-control"
-name="email"
-value="{{ request.user.email }}">
-</div>
-
-
-<div class="col-md-6">
-<label class="form-label">Nombre</label>
-<input type="text"
-class="form-control"
-name="first_name"
-value="{{ request.user.first_name }}">
-</div>
-
-
-<div class="col-md-6">
-<label class="form-label">Apellido</label>
-<input type="text"
-class="form-control"
-name="last_name"
-value="{{ request.user.last_name }}">
-</div>
-
-
-<div class="col-md-6">
-<label class="form-label">Móvil</label>
-<input type="tel"
-class="form-control"
-name="mobile">
-</div>
-
-
-<div class="col-md-6">
-<label class="form-label">País</label>
-
-<select class="form-select" name="country">
-
-<option value="Panamá" {% if request.user.profile.country == "Panamá" %}selected{% endif %}>Panamá</option>
-<option value="Colombia" {% if request.user.profile.country == "Colombia" %}selected{% endif %}>Colombia</option>
-<option value="Costa Rica" {% if request.user.profile.country == "Costa Rica" %}selected{% endif %}>Costa Rica</option>
-<option value="Estados Unidos" {% if request.user.profile.country == "Estados Unidos" %}selected{% endif %}>Estados Unidos</option>
-<option value="Rep. Dominicana" {% if request.user.profile.country == "Rep. Dominicana" %}selected{% endif %}>Rep. Dominicana</option>
-<option value="Guatemala" {% if request.user.profile.country == "Guatemala" %}selected{% endif %}>Guatemala</option>
-<option value="Honduras" {% if request.user.profile.country == "Honduras" %}selected{% endif %}>Honduras</option>
-<option value="Jamaica" {% if request.user.profile.country == "Jamaica" %}selected{% endif %}>Jamaica</option>
-<option value="Nicaragua" {% if request.user.profile.country == "Nicaragua" %}selected{% endif %}>Nicaragua</option>
-<option value="El Salvador" {% if request.user.profile.country == "El Salvador" %}selected{% endif %}>El Salvador</option>
-<option value="Uruguay" {% if request.user.profile.country == "Uruguay" %}selected{% endif %}>Uruguay</option>
-<option value="Venezuela" {% if request.user.profile.country == "Venezuela" %}selected{% endif %}>Venezuela</option>
-
-</select>
-
-</div>
-
-
-<div class="col-12">
-<label class="form-label">Dirección</label>
-<input type="text" class="form-control" name="address">
-</div>
-
-
-<div class="col-md-4">
-<label class="form-label">Facebook</label>
-<input type="url" class="form-control" name="facebook">
-</div>
-
-
-<div class="col-md-4">
-<label class="form-label">Instagram</label>
-<input type="url" class="form-control" name="instagram">
-</div>
-
-
-<hr>
-
-
-<div class="col-md-6">
-<label class="form-label">Nueva Contraseña</label>
-<input type="password" class="form-control" name="password">
-</div>
-
-
-<div class="col-md-6">
-<label class="form-label">Confirmar Contraseña</label>
-<input type="password" class="form-control" name="confirm_password">
-</div>
-
-</div>
-
-</div>
-
-
-<div class="modal-footer">
-<button type="submit" class="btn btn-primary">
-Guardar Cambios
-</button>
-</div>
-
-</form>
-
-</div>
-
-</div>
-
+        <div class="modal-footer bg-light border-0">
+          <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" name="btn_perfil" class="btn text-white px-4" style="background-color: #0e4383;">Guardar Cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
 
-
-
 {% block extra_js %}
-
 <script src="{% static 'js/scroll-reveal.js' %}"></script>
 <script src="{% static 'js/topbar-loop.js' %}"></script>
 <script src="{% static 'js/menu.js' %}"></script>
 <script src="{% static 'js/dashboard.js' %}"></script>
-
 {% endblock %}

@@ -229,3 +229,54 @@ RESPONSIVE PROFILE
   color: #fff;
 }
 
+/* ==========================================================================
+   MEJORAS ESPECÍFICAS DASHBOARD RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Ajuste para el formulario de registro rápido */
+    .profile-references .d-flex.justify-content-between {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+
+    .profile-references form {
+        width: 100%;
+        flex-direction: column; /* Input arriba, botón abajo */
+    }
+
+    .profile-references form input {
+        width: 100% !important;
+    }
+
+    .profile-references form button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Ajuste del Modal de Edición */
+    .modal-lg {
+        max-width: 95%;
+        margin: 10px auto;
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+}
+
+/* Fix para el avatar en el dashboard */
+.avatar-icon {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.avatar-icon:hover {
+    transform: scale(1.05);
+}
+
+/* Asegurar que las imágenes del background no pesen visualmente */
+.profile-wrapper {
+    background-attachment: fixed; /* Mantiene el fondo quieto al scrollear */
+}

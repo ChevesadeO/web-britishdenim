@@ -167,36 +167,93 @@ main {
   }
 }
 
-/* AJUSTES PARA MÓVILES (Responsive) */
+/* ==========================================================================
+   REGISTRO DE PRODUCTO - ESTILOS BASE Y RESPONSIVE
+   ========================================================================== */
+
+.regprod-modern {
+    position: relative;
+    padding: 60px 0;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background-color: #f4f7f6; /* Color de respaldo */
+}
+
+.regprod-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.regprod-main-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #0e4383;
+}
+
+.regprod-btn-primary {
+    background: #0e4383;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    transition: 0.3s;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.regprod-btn-secondary {
+    display: block;
+    color: #0e4383;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+}
+
+/* --- MEDIA QUERIES (RESPONSIVE) --- */
+
 @media (max-width: 768px) {
     .regprod-modern {
-        padding-top: 180px; /* Reducimos espacio superior en móvil */
-        padding-bottom: 80px;
-    }
-
-    .regprod-main-title {
-        font-size: 28px !important; /* Título más pequeño */
-        letter-spacing: 2px !important;
+        padding: 40px 15px;
     }
 
     .regprod-card {
-        padding: 30px 20px; /* Menos padding lateral */
-        margin: 0 15px; /* Margen para que no toque los bordes del cel */
+        padding: 25px 20px; /* Menos espacio interno en móvil */
+        border-radius: 15px;
     }
 
-    .regprod-actions {
-        flex-direction: column; /* Botones uno arriba del otro */
-        gap: 10px;
+    .regprod-title {
+        font-size: 1.5rem;
     }
 
-    .regprod-btn-primary, .regprod-btn-secondary {
-        max-width: 100%; /* Botones de ancho completo */
-        width: 100%;
+    .regprod-subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* Ajuste del lector de QR para que no sea muy alto en móviles */
+    #reader {
+        margin-bottom: 15px;
+    }
+
+    /* Asegurar que los botones no se vean diminutos */
+    .regprod-btn-primary {
+        padding: 15px;
+        font-size: 1rem;
     }
 }
 
-/* Efecto suave para el lector QR */
-#reader__scan_region {
-    background: white;
+/* Para celulares muy pequeños */
+@media (max-width: 380px) {
+    .regprod-main-title {
+        font-size: 1.8rem;
+    }
+    
+    .topbar-track span {
+        font-size: 0.7rem;
+    }
 }
-

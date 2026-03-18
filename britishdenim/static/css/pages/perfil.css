@@ -126,5 +126,77 @@ transform:translateY(0);
 }
 
 
+/* ==========================================================================
+   RESPONSIVE DESIGN - AUTH / PERFIL
+   ========================================================================== */
 
+/* Tablets */
+@media (max-width: 992px) {
+    .auth-left {
+        padding: 2rem; /* Reducimos el espacio excesivo */
+    }
+    
+    .auth-right {
+        flex: 0.6; /* Le damos menos peso a la imagen en tablets */
+    }
+}
+
+/* Móviles (Smartphone) */
+@media (max-width: 768px) {
+    .auth-wrapper {
+        flex-direction: column; /* Apilamos los elementos verticalmente */
+    }
+
+    .auth-right {
+        display: none; /* Ocultamos la imagen lateral para ahorrar espacio */
+    }
+
+    .auth-left {
+        width: 100%;
+        min-height: 80vh;
+        padding: 40px 20px;
+        background: #ffffff; /* Fondo limpio para móvil */
+    }
+
+    .auth-box {
+        max-width: 100%;
+        padding: 20px;
+        box-shadow: none; /* Quitamos sombra para un look más flat en móvil */
+        background: transparent;
+        backdrop-filter: none;
+    }
+
+    .auth-box h2 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 30px;
+        color: #0e4383;
+    }
+
+    .form-group input {
+        padding: 16px; /* Inputs más grandes para que sean fáciles de tocar */
+        font-size: 16px; /* Evita que iOS haga zoom automático al enfocar */
+    }
+
+    .btn-auth {
+        padding: 16px;
+        font-size: 1.1rem;
+        margin-top: 10px;
+    }
+
+    .auth-switch {
+        text-align: center;
+        margin-top: 25px;
+    }
+}
+
+/* Corrección de altura para el Topbar */
+.auth-wrapper {
+    padding-top: 50px; /* Ajuste para que el formulario no quede bajo el header */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
