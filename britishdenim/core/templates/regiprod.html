@@ -7,76 +7,61 @@
 
 {% block content %}
 
-<!-- TOPBAR -->
 <div class="top-bar">
-  <p>Autentica tu producto original British Denim</p>
+  <div class="topbar-track" id="topbarTrack">
+    <span><i class="bi bi-award"></i> LONG LASTING & FASHION</span>
+    <span><i class="bi bi-telephone"></i> +507 433-9200</span>
+    <span><i class="bi bi-envelope"></i> info@epcotsa.com</span>
+  </div>
 </div>
 
 <main>
+  <section class="regprod-modern">
+    <div class="regprod-bg"></div>
 
-<!-- HERO BANNER -->
-<section class="regprod-hero">
-  <div class="container">
-    <h1>Registro de Producto</h1>
-  </div>
-</section>
+    <div class="container">
+      <div class="text-center text-white mb-5 fade-up">
+        <h1 style="font-size: 42px; font-weight: 600; letter-spacing: 5px; margin: 0;">Registro de Producto</h1>
+      </div>
 
-<!-- FORM SECTION -->
-<section class="regprod-section">
+      <div class="regprod-card fade-up fade-up-delay-1">
+        <form class="regprod-form">
+          <h3 class="regprod-title">Verifica tu producto</h3>
+          <p class="regprod-subtitle">
+            Ingresa la referencia para autenticar tu producto British Denim.
+          </p>
 
-<div class="container">
+          <div class="text-start mb-2">
+            <label class="form-label fw-bold" style="color:#0e4383;">Referencia</label>
+          </div>
+          
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Ej. RE-12345" 
+            required
+          >
 
-<div class="regprod-card fade-up">
+          <div class="regprod-actions mt-4">
+            <button type="submit" class="regprod-btn-primary">
+              Registrar producto
+            </button>
+            <a href="{% url 'perfil' %}" class="regprod-btn-secondary">
+              Ya tengo usuario
+            </a>
+          </div>
+        </form>
 
-<form class="regprod-form">
-
-<h3 class="regprod-title">
-Verifica tu producto
-</h3>
-
-<p class="regprod-subtitle">
-Ingresa la referencia para autenticar tu producto British Denim.
-</p>
-
-<label class="form-label">Referencia</label>
-
-<input
-type="text"
-class="form-control"
-placeholder="Ej. RE-12345"
-required
->
-
-<div class="regprod-actions">
-
-<button type="submit" class="regprod-btn-primary">
-Registrar producto
-</button>
-
-<a href="{% url 'perfil' %}" class="regprod-btn-secondary">
-Ya tengo usuario
-</a>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
+        <div id="authResult" class="auth-result"></div>
+      </div>
+    </div>
+  </section>
 </main>
-
-<!-- sistema de autenticacion de producto con localStorage -->
-<div id="authResult" class="auth-result"></div>
 
 {% endblock %}
 
 {% block extra_js %}
-
 <script src="{% static 'js/product-database.js' %}"></script>
 <script src="{% static 'js/regprod.js' %}"></script>
-
+<script src="{% static 'js/topbar-loop.js' %}"></script>
 {% endblock %}

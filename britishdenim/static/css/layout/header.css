@@ -1,15 +1,11 @@
 /* ===== HEADER ===== */
 .main-header{
-position:fixed;
+position:absolute;
 top:40px; /* debajo de topbar */
 left:0;
 width:100%;
-z-index:2000;
+z-index: 1000;
 background:transparent;
-transition:
-background .35s ease,
-box-shadow .35s ease,
-backdrop-filter .35s ease;
 }
 
 /* contenedor interno */
