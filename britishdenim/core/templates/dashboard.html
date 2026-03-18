@@ -74,6 +74,33 @@ Cerrar Sesión
 
 </div>
 
+<!-- Registro de producto -->
+<div class="profile-references">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>Registrar referencia</h3>
+        <form method="POST" class="d-flex gap-2">
+            {% csrf_token %}
+            <input type="text" name="nueva_referencia" class="form-control form-control-sm" placeholder="Nueva Ref (Ej: RE-999)" required>
+            <button type="submit" class="btn btn-sm btn-primary">Registrar</button>
+        </form>
+    </div>
+
+    <div id="referencesContainer">
+        {% for producto in productos %}
+        <div class="reference-card">
+            <div class="ref-header">
+                <strong>{{ producto.referencia }}</strong>
+                <span class="ref-date">{{ producto.fecha|date:"d/m/Y" }}</span>
+            </div>
+            <p>{{ producto.descripcion }}</p>
+        </div>
+        {% empty %}
+        <p class="text-muted">No tienes productos registrados.</p>
+        {% endfor %}
+    </div>
+</div>
+
+
 
 <!-- REFERENCIAS -->
 <div class="profile-references">
