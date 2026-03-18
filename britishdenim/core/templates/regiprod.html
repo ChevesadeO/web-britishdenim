@@ -4,10 +4,26 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/pages/index.css' %}">
 <style>
-    /* Estilos del Top Bar que eliminamos */
+    /* Estilos del Top Bar */
     .top-bar { background: #0e4383; color: white; padding: 10px 0; overflow: hidden; }
     .topbar-track { display: flex; white-space: nowrap; gap: 50px; }
 
+    /* --- IMAGEN DE FONDO REINTEGRADA AQUÍ --- */
+    .regprod-modern {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 150px 0 80px; /* Ajuste de espacio para el header y topbar */
+        
+        /* Imagen de fondo con degradado superpuesto para legibilidad */
+        background: 
+            linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+            url("{% static 'img/denim.jpg' %}") center center / cover no-repeat;
+    }
+
+    /* Estilos del Lector QR */
     #reader {
         width: 100%;
         border-radius: 15px;
@@ -17,6 +33,16 @@
         margin-bottom: 20px;
     }
     #reader video { border-radius: 15px; }
+
+    /* Estilo para la tarjeta (Glassmorphism) */
+    .regprod-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
 </style>
 {% endblock %}
 
@@ -31,21 +57,20 @@
 
 <main>
   <section class="regprod-modern">
-    <div class="regprod-bg"></div>
     <div class="container">
-      <div class="text-center text-white mb-4 fade-up pt-4">
-        <h1 class="regprod-main-title">Registro de Producto</h1>
+      <div class="text-center text-white mb-4 fade-up">
+        <h1 class="regprod-main-title fw-bold" style="font-size: clamp(2.5rem, 6vw, 4rem);">Registro de Producto</h1>
       </div>
 
-      <div class="regprod-card fade-up">
+      <div class="regprod-card fade-up mx-auto" style="max-width: 600px;">
         <div class="regprod-form text-center">
-          <h3 class="regprod-title">Registra tu referencia</h3>
-          <p class="regprod-subtitle">Escanea el código QR o ingresa la referencia manualmente.</p>
+          <h3 class="regprod-title fw-bold mb-2" style="color: #0e4383;">Registra tu referencia</h3>
+          <p class="regprod-subtitle text-muted mb-4">Escanea el código QR o ingresa la referencia manualmente.</p>
 
           <div id="reader"></div>
 
           <div class="mb-3">
-            <button id="btnQR" type="button" class="btn w-100 mb-3" style="background: #e1e1e1; color: #0e4383; border-radius: 12px; font-weight: 600;">
+            <button id="btnQR" type="button" class="btn w-100 mb-3" style="background: #e1e1e1; color: #0e4383; border-radius: 12px; font-weight: 600; padding: 12px;">
               <i class="bi bi-qr-code-scan"></i> Escanear Código QR
             </button>
           </div>
@@ -54,13 +79,15 @@
             <label class="form-label fw-bold" style="color:#0e4383;">Referencia Manual</label>
           </div>
           
-          <input type="text" id="refInput" class="form-control mb-4" placeholder="Ej. RE-12345">
+          <input type="text" id="refInput" class="form-control mb-4" placeholder="Ej. RE-12345" style="border-radius: 10px; padding: 12px; border: 1px solid rgba(14, 67, 131, 0.2);">
 
-          <div class="regprod-actions">
-            <button type="button" onclick="abrirModalRegistro()" class="regprod-btn-primary">
+          <div class="regprod-actions d-flex flex-column flex-sm-row gap-3">
+            <button type="button" onclick="abrirModalRegistro()" class="btn text-white w-100 py-3 fw-bold" style="background: #0e4383; border-radius: 10px;">
               Regístrate primero
             </button>
-            <a href="{% url 'perfil' %}" class="regprod-btn-secondary">Ya tengo usuario</a>
+            <a href="{% url 'perfil' %}" class="btn btn-outline-primary w-100 py-3 fw-bold d-flex align-items-center justify-content-center" style="color: #0e4383; border-color: #0e4383; border-radius: 10px;">
+              Ya tengo usuario
+            </a>
           </div>
         </div>
       </div>
@@ -70,16 +97,17 @@
 
 <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Confirmar Referencia</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-content border-0 shadow-lg" style="border-radius: 15px;">
+      <div class="modal-header text-white" style="background-color: #0e4383; border-radius: 15px 15px 0 0;">
+        <h5 class="modal-title fw-bold">Confirmar Referencia</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body text-center">
-        <p>Referencia detectada:</p>
-        <h3 id="displayRef" class="text-primary"></h3>
+      <div class="modal-body text-center p-4">
+        <p class="text-muted mb-2">Referencia detectada:</p>
+        <h2 id="displayRef" class="fw-bold mb-4" style="color: #0e4383;"></h2>
         <input type="hidden" id="hiddenRef">
-        <button type="button" class="btn btn-primary w-100 mt-3" onclick="location.href='/tu-url-de-registro/'">
+        
+        <button type="button" class="btn text-white w-100 py-3 fw-bold" style="background-color: #0e4383; border-radius: 10px;" onclick="location.href='/tu-url-de-registro/'">
             Confirmar y Registrarse
         </button>
       </div>
@@ -91,6 +119,7 @@
 {% block extra_js %}
 <script src="https://unpkg.com/html5-qrcode"></script>
 <script>
+    // --- LÓGICA DEL LECTOR QR (Sin cambios) ---
     const html5QrCode = new Html5Qrcode("reader");
     const btnQR = document.getElementById('btnQR');
     const readerDiv = document.getElementById('reader');
@@ -110,7 +139,7 @@
             },
             (errorMessage) => { }
         ).catch((err) => {
-            alert("Error al iniciar cámara.");
+            alert("Error al iniciar cámara. Asegúrate de dar permisos.");
         });
     });
 
