@@ -2,87 +2,98 @@
 {% load static %}
 
 {% block content %}
-
-<div class="top-bar" style="background: #0e4383;">
-  <div class="topbar-track" id="topbarTrack">
-    <span><i class="bi bi-award"></i> LONG LASTING & FASHION</span>
+<div class="top-bar" style="background: #0e4383; padding: 10px 0;">
+  <div class="container text-center text-white small">
     <span><i class="bi bi-telephone"></i> +507 433-9200</span>
-    <span><i class="bi bi-envelope"></i> info@epcotsa.com</span>
   </div>
-</div>
-
-<div id="dashboardLoader" class="dashboard-loader">
-  <div class="spinner-border" style="color: #0e4383;"></div>
 </div>
 
 <section class="profile-wrapper">
   <div class="container">
+    
+
     <div class="profile-card fade-up">
       
-      <div class="profile-header" style="border-bottom: 1px solid rgba(14, 67, 131, 0.1);">
+      <div class="profile-header">
         <div class="d-flex align-items-center flex-wrap justify-content-center justify-content-md-start">
-          <div class="profile-avatar mb-3 mb-md-0">
-            <label for="avatarUpload" class="avatar-icon male" id="avatarPreview" style="background: linear-gradient(135deg, #0e4383, #1a5fb0);">
+          
+          <div class="profile-avatar">
+            <label for="avatarUpload" class="avatar-icon male" id="avatarPreview" style="cursor: pointer;">
               <i class="fa-solid fa-user"></i>
             </label>
             <input type="file" id="avatarUpload" accept="image/*" hidden>
           </div>
 
-          <div class="profile-info ms-md-4 text-center text-md-start">
-            <h2 class="mb-1" style="color: #0e4383;">{{ request.user.first_name }} {{ request.user.last_name }}</h2>
-            <p class="country mb-2 text-muted">
+          <div class="profile-info ms-md-4 mt-3 mt-md-0 text-center text-md-start">
+            <h2 class="fw-bold mb-1" style="color: #0e4383;">{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+            <p class="mb-2 text-muted">
+              <i class="bi bi-geo-alt-fill" style="color: #0e4383;"></i> 
               {% if request.user.profile.country %}
-                <i class="bi bi-geo-alt-fill" style="color: #0e4383;"></i> {{ request.user.profile.country }}
+                {{ request.user.profile.country }}
               {% else %}
-                <i class="bi bi-geo-alt"></i> Sin país asignado
+                Sin país
               {% endif %}
             </p>
-            <div class="product-counter" style="color: #0e4383;">
-              <span class="badge" style="background-color: #0e4383;">{{ productos|length }}</span> Productos registrados
+            <div class="product-counter">
+              <span class="badge" style="background: #0e4383;">{{ productos|length }}</span> Productos registrados
             </div>
           </div>
         </div>
 
-        <div class="profile-actions mt-4 mt-md-0 d-flex flex-column flex-sm-row gap-2">
-          <button class="btn shadow-sm text-white" data-bs-toggle="modal" data-bs-target="#editProfileModal" style="background-color: #0e4383; border: none;">
+        <div class="profile-actions d-flex gap-2">
+          <button class="btn btn-edit btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#editProfileModal">
             <i class="bi bi-pencil-square"></i> Editar Perfil
           </button>
-          <a href="{% url 'logout' %}" class="btn btn-light shadow-sm text-decoration-none d-flex align-items-center justify-content-center border">
-            <i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar Sesión
+          <a href="{% url 'logout' %}" class="btn btn-light btn-sm shadow-sm border">
+            <i class="fa-solid fa-right-from-bracket"></i> Salir
           </a>
         </div>
       </div>
 
-      <div class="profile-references mt-5">
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
-          <h3 class="mb-0 fw-bold" style="color: #0e4383;">Mis Referencias</h3>
-          
-          <form method="POST" class="d-flex gap-2">
-            {% csrf_token %}
-            <input type="text" name="nueva_referencia" class="form-control" placeholder="Ej: RE-999" required style="border-color: rgba(14, 67, 131, 0.2);">
-            <button type="submit" name="btn_registrar" class="btn text-white px-4" style="background-color: #0e4383;">
-                Registrar
-            </button>
-          </form>
-        </div>
+      <div class="registration-area mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-9">
+            <label class="reg-label text-uppercase small letter-spacing-1">Registrar Nueva Referencia</label>
+            <form method="POST" class="d-flex gap-2" id="regForm">
+              {% csrf_token %}
+              <div class="custom-input-group w-100">
+                <input type="text" name="nueva_referencia" id="nueva_referencia" class="form-control" placeholder="Escriba o escanee el código" required>
+                <button class="btn btn-qr-scanner" type="button" id="btnDashQR">
+                  <i class="bi bi-qr-code-scan"></i>
+                </button>
+              </div>
+              <button type="submit" name="btn_registrar" class="btn btn-registrar-main">
+                  Registrar
+              </button>
+            </form>
 
+            <div id="dashReaderContainer" style="display:none; margin: 20px 0;" class="fade-up">
+              <div id="dashReader"></div>
+              <button class="btn btn-sm btn-danger w-100 mt-2" id="stopDashQR">CANCELAR ESCANEO</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="custom-divider"></div>
+
+      <div class="profile-references">
+        <h3 class="mb-4 fw-bold" style="color: #0e4383;">Mis Referencias</h3>
+        
         <div id="referencesContainer" class="row g-3">
           {% for producto in productos %}
           <div class="col-12">
-            <div class="reference-card border-start border-4 shadow-sm p-3 bg-light rounded-3 transition-hover" style="border-color: #0e4383 !important;">
-              <div class="ref-header d-flex justify-content-between align-items-center mb-2">
+            <div class="reference-card border-start border-4 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center">
                 <strong class="fs-5" style="color: #0e4383;">{{ producto.referencia }}</strong>
-                <span class="ref-date text-muted small">
-                  <i class="bi bi-calendar3 me-1"></i> {{ producto.fecha|date:"d/m/Y" }}
-                </span>
+                <span class="text-muted small"><i class="bi bi-calendar3"></i> {{ producto.fecha|date:"d/m/Y" }}</span>
               </div>
-              <p class="mb-0 text-secondary italic small">{{ producto.descripcion|default:"Sin descripción adicional." }}</p>
+              <p class="mb-0 text-muted small mt-2">{{ producto.descripcion|default:"Registrado desde el panel de usuario" }}</p>
             </div>
           </div>
           {% empty %}
-          <div class="col-12 text-center py-5 border rounded-3 bg-light bg-opacity-50">
-            <i class="bi bi-search display-4 text-muted"></i>
-            <p class="text-muted mt-3 fs-5">No tienes productos registrados aún.</p>
+          <div class="col-12 text-center py-4">
+            <p class="text-muted">No tienes productos registrados.</p>
           </div>
           {% endfor %}
         </div>
@@ -92,43 +103,140 @@
   </div>
 </section>
 
-<div class="modal fade" id="editProfileModal" tabindex="-1" aria-hidden="true">
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="productToast" class="toast">
+    <div class="toast-body">
+      Producto registrado correctamente
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editProfileModal" tabindex="-1">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content border-0 shadow-lg">
       <form method="POST" id="editProfileForm">
         {% csrf_token %}
         <div class="modal-header text-white" style="background-color: #0e4383;">
-          <h5 class="modal-title fw-bold">Actualizar Datos Personales</h5>
+          <h5 class="modal-title fw-bold">Editar Perfil</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
 
         <div class="modal-body p-4">
           <div class="row g-3">
             <div class="col-md-6">
+              <label class="form-label fw-bold" style="color: #0e4383;">Usuario (Email)</label>
+              <input type="email" class="form-control" name="username" value="{{ request.user.username }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-bold" style="color: #0e4383;">Email</label>
+              <input type="email" class="form-control" name="email" value="{{ request.user.email }}">
+            </div>
+            <div class="col-md-6">
               <label class="form-label fw-bold" style="color: #0e4383;">Nombre</label>
-              <input type="text" class="form-control shadow-sm" name="first_name" value="{{ request.user.first_name }}">
+              <input type="text" class="form-control" name="first_name" value="{{ request.user.first_name }}">
             </div>
             <div class="col-md-6">
               <label class="form-label fw-bold" style="color: #0e4383;">Apellido</label>
-              <input type="text" class="form-control shadow-sm" name="last_name" value="{{ request.user.last_name }}">
+              <input type="text" class="form-control" name="last_name" value="{{ request.user.last_name }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-bold" style="color: #0e4383;">Móvil</label>
+              <input type="tel" class="form-control" name="mobile">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-bold" style="color: #0e4383;">País</label>
+              <select class="form-select" name="country">
+                <option value="Panamá" {% if request.user.profile.country == "Panamá" %}selected{% endif %}>Panamá</option>
+                <option value="Colombia" {% if request.user.profile.country == "Colombia" %}selected{% endif %}>Colombia</option>
+                <option value="Costa Rica" {% if request.user.profile.country == "Costa Rica" %}selected{% endif %}>Costa Rica</option>
+                <option value="Estados Unidos" {% if request.user.profile.country == "Estados Unidos" %}selected{% endif %}>Estados Unidos</option>
+                <option value="Rep. Dominicana" {% if request.user.profile.country == "Rep. Dominicana" %}selected{% endif %}>Rep. Dominicana</option>
+                <option value="Guatemala" {% if request.user.profile.country == "Guatemala" %}selected{% endif %}>Guatemala</option>
+                <option value="Honduras" {% if request.user.profile.country == "Honduras" %}selected{% endif %}>Honduras</option>
+                <option value="Jamaica" {% if request.user.profile.country == "Jamaica" %}selected{% endif %}>Jamaica</option>
+                <option value="Nicaragua" {% if request.user.profile.country == "Nicaragua" %}selected{% endif %}>Nicaragua</option>
+                <option value="El Salvador" {% if request.user.profile.country == "El Salvador" %}selected{% endif %}>El Salvador</option>
+                <option value="Uruguay" {% if request.user.profile.country == "Uruguay" %}selected{% endif %}>Uruguay</option>
+                <option value="Venezuela" {% if request.user.profile.country == "Venezuela" %}selected{% endif %}>Venezuela</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-bold" style="color: #0e4383;">Dirección</label>
+              <input type="text" class="form-control" name="address">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold" style="color: #0e4383;">Facebook</label>
+              <input type="url" class="form-control" name="facebook">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold" style="color: #0e4383;">Instagram</label>
+              <input type="url" class="form-control" name="instagram">
+            </div>
+            
+            <div class="col-12"><hr></div>
+
+            <div class="col-md-6">
+              <label class="form-label fw-bold" style="color: #0e4383;">Nueva Contraseña</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-bold" style="color: #0e4383;">Confirmar Contraseña</label>
+              <input type="password" class="form-control" name="confirm_password">
             </div>
           </div>
         </div>
 
         <div class="modal-footer bg-light border-0">
-          <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" name="btn_perfil" class="btn text-white px-4" style="background-color: #0e4383;">Guardar Cambios</button>
+          <button type="submit" class="btn text-white px-4" style="background-color: #0e4383;">
+            Guardar Cambios
+          </button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
 {% endblock %}
 
 {% block extra_js %}
+<script src="https://unpkg.com/html5-qrcode"></script>
 <script src="{% static 'js/scroll-reveal.js' %}"></script>
 <script src="{% static 'js/topbar-loop.js' %}"></script>
 <script src="{% static 'js/menu.js' %}"></script>
 <script src="{% static 'js/dashboard.js' %}"></script>
+
+<script>
+  // Lógica del Scanner QR
+  const dashHtml5QrCode = new Html5Qrcode("dashReader");
+  const btnDashQR = document.getElementById('btnDashQR');
+  const dashReaderContainer = document.getElementById('dashReaderContainer');
+  const stopDashQR = document.getElementById('stopDashQR');
+  const refInput = document.getElementById('nueva_referencia');
+
+  if(btnDashQR){
+    btnDashQR.addEventListener('click', () => {
+        dashReaderContainer.style.display = 'block';
+        dashHtml5QrCode.start(
+            { facingMode: "environment" },
+            { fps: 10, qrbox: { width: 250, height: 250 } },
+            (decodedText) => {
+                refInput.value = decodedText;
+                stopScanner();
+            },
+            (errorMessage) => { }
+        ).catch((err) => {
+            alert("Error al acceder a la cámara. Asegúrate de dar permisos.");
+        });
+    });
+  }
+
+  if(stopDashQR){
+    stopDashQR.addEventListener('click', stopScanner);
+  }
+
+  function stopScanner() {
+      dashHtml5QrCode.stop().then(() => {
+          dashReaderContainer.style.display = 'none';
+      }).catch(err => console.log(err));
+  }
+</script>
 {% endblock %}
