@@ -28,9 +28,9 @@
             <p class="mb-2 text-muted">
               <i class="bi bi-geo-alt-fill" style="color: #0e4383;"></i> 
               {% if request.user.profile.country %}
-                🌎 {{ request.user.profile.country }}
+              {{ request.user.profile.country }}
               {% else %}
-                🌎 Sin país
+              Sin país
               {% endif %}
             </p>
             <div class="product-counter">
