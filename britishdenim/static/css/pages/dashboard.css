@@ -107,3 +107,17 @@
     padding-bottom: 30px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
+
+
+
+  /* Fuerza que las referencias sean visibles aunque un script intente ocultarlas */
+.reference-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transform: none !important;
+}
+#referencesContainer {
+    opacity: 1 !important;
+    display: flex !important; /* Mantiene el grid de Bootstrap */
+}

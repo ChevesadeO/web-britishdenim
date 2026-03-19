@@ -11,8 +11,7 @@
 <section class="profile-wrapper">
   <div class="container">
     
-
-    <div class="profile-card fade-up">
+    <div class="profile-card">
       
       <div class="profile-header">
         <div class="d-flex align-items-center flex-wrap justify-content-center justify-content-md-start">
@@ -29,9 +28,9 @@
             <p class="mb-2 text-muted">
               <i class="bi bi-geo-alt-fill" style="color: #0e4383;"></i> 
               {% if request.user.profile.country %}
-                {{ request.user.profile.country }}
+                🌎 {{ request.user.profile.country }}
               {% else %}
-                Sin país
+                🌎 Sin país
               {% endif %}
             </p>
             <div class="product-counter">
@@ -67,7 +66,7 @@
               </button>
             </form>
 
-            <div id="dashReaderContainer" style="display:none; margin: 20px 0;" class="fade-up">
+            <div id="dashReaderContainer" style="display:none; margin: 20px 0;">
               <div id="dashReader"></div>
               <button class="btn btn-sm btn-danger w-100 mt-2" id="stopDashQR">CANCELAR ESCANEO</button>
             </div>
