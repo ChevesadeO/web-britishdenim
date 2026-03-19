@@ -44,3 +44,29 @@ toggle.addEventListener("click", () => {
   }
 });
 
+
+//boton hamburguesa
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const icon = menuToggle.querySelector('i');
+
+    menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        
+        // Cambia el icono de lista a una X
+        if (mainNav.classList.contains('active')) {
+            icon.classList.replace('bi-list', 'bi-x-lg');
+        } else {
+            icon.classList.replace('bi-x-lg', 'bi-list');
+        }
+    });
+
+    // Cerrar menú si se hace click fuera (opcional pero recomendado)
+    document.addEventListener('click', (e) => {
+        if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+            mainNav.classList.remove('active');
+            icon.classList.replace('bi-x-lg', 'bi-list');
+        }
+    });
+});

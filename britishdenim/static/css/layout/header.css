@@ -1,100 +1,111 @@
-/* ===== HEADER ===== */
-.main-header{
-position:absolute;
-top:40px; /* debajo de topbar */
-left:0;
-width:100%;
-z-index: 1000;
-background:transparent;
+/* ===== HEADER BASE ===== */
+.main-header {
+    position: absolute;
+    top: 40px; 
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+    transition: all 0.3s ease;
 }
 
-/* contenedor interno */
-.header-inner{
-display:flex;
-align-items:center;
-justify-content:space-between;
-width:100%;
-max-width:1400px;
-margin:0 auto;
-padding:0 20px;
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
 }
 
-.header-inner{
-padding:0 50px;
+.logo img {
+    height: 75px;
+    transition: all .35s ease;
 }
 
-/* LOGO */
-.logo img{
-height:75px;
-transition:
-height .35s ease,
-filter .35s ease;
+/* NAV DESKTOP */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    padding: 0;
+    margin: 0;
+    align-items: center;
 }
 
-/* NAV */
-.main-nav ul{
-list-style:none;
-display:flex;
-gap:2.5rem;
-padding:0;
-margin:0;
+.main-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    transition: color .3s ease;
 }
 
-.main-nav a{
-text-decoration:none;
-color:#fff;
-font-weight:500;
-position:relative;
-transition:color .3s ease;
+/* Toggle escondido en PC */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1100;
 }
 
-/* hover underline */
-.main-nav a::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-6px;
-width:0;
-height:1px;
-background:#0e4383;
-transition:width .3s ease;
+/* ===== RESPONSIVE MÓVIL (Ajuste Crítico) ===== */
+@media (max-width: 992px) {
+    .header-inner { padding: 0 20px; }
+    
+    .logo img { height: 50px; }
+
+    .menu-toggle { display: block; }
+
+    /* Convertimos el NAV en Menú Lateral */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido */
+        width: 280px;
+        height: 100vh;
+        background: #0e4383; /* Tu azul */
+        padding: 100px 40px;
+        transition: right 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    }
+
+    .main-nav.active {
+        right: 0; /* Aparece */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .main-nav a {
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    /* Ajuste cuando hay scroll en móvil */
+    .main-header.scrolled .menu-toggle {
+        color: #111;
+    }
 }
 
-.main-nav a:hover::after{
-width:100%;
+/* ===== ESTADO SCROLLED ===== */
+.main-header.scrolled {
+    position: fixed;
+    top: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-/* ===== HEADER SCROLL ===== */
-.main-header.scrolled{
-background:rgba(255,255,255,0.95);
-backdrop-filter:blur(10px);
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+.main-header.scrolled .logo img {
+    filter: brightness(0) saturate(100%) invert(18%) sepia(50%) saturate(3455%) hue-rotate(202deg) brightness(95%) contrast(92%);
+    height: 60px;
 }
 
-/* links negros */
-.main-header.scrolled .main-nav a{
-color:#111;
-}
-
-/* logo negro */
-.main-header.scrolled .logo img{
-filter:brightness(0);
-height:60px;
-}
-
-/* RESPONSIVE */
-@media (max-width:768px){
-
-.nav-menu{
-display:none;
-}
-
-.header-container{
-padding:15px 20px;
-}
-
-.logo img{
-height:40px;
-}
-
-}
+.main-header.scrolled .main-nav a { color: #111; }

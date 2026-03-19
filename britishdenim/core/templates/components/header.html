@@ -1,7 +1,5 @@
 {% load static %}
-
 <header class="main-header">
-
   <div class="container header-inner">
 
     <div class="logo">
@@ -10,36 +8,18 @@
       </a>
     </div>
 
-    <nav class="main-nav">
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
       <ul>
-
-        <li>
-          <a href="{% url 'index' %}">
-            Inicio
-          </a>
-        </li>
-
-        <li>
-          <a href="{% url 'regiprod' %}">
-            Registrar producto
-          </a>
-        </li>
-
-        <li>
-          <a href="{% url 'contacto' %}">
-            Contáctenos
-          </a>
-        </li>
-
-        <li>
-          <a href="{% url 'perfil' %}">
-            Ingresar
-          </a>
-        </li>
-
+        <li><a href="{% url 'index' %}">Inicio</a></li>
+        <li><a href="{% url 'regiprod' %}">Registrar producto</a></li>
+        <li><a href="{% url 'contacto' %}">Contáctenos</a></li>
+        <li><a href="{% url 'perfil' %}" class="btn-ingresar">Ingresar</a></li>
       </ul>
     </nav>
 
   </div>
-
 </header>
